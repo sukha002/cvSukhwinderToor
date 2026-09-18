@@ -1,0 +1,1337 @@
+/* =====================================================
+   PUBLICATIONS PAGE
+   Sukhwinder Singh
+===================================================== */
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #ffffff;
+
+    color: #07111f;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root {
+
+    --navy: #07111f;
+
+    --blue: #1683ff;
+
+    --blue-light: #5ba9ff;
+
+    --text: #17202c;
+
+    --muted: #687384;
+
+    --light: #f5f7fa;
+
+    --border: #dfe5ec;
+
+    --white: #ffffff;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.site-header {
+
+    height: 82px;
+
+    padding: 0 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+}
+
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+
+    color: var(--navy);
+
+}
+
+
+.brand-mark {
+
+    width: 40px;
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 2px solid var(--blue);
+
+    color: var(--blue);
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+}
+
+
+.brand-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    line-height: 1;
+
+}
+
+
+.brand-text strong {
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.brand-text span {
+
+    margin-top: 5px;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: var(--muted);
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.navigation {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+
+}
+
+
+.navigation a {
+
+    text-decoration: none;
+
+    color: #46505e;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    position: relative;
+
+    transition:
+        color 0.25s ease;
+
+}
+
+
+.navigation a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -7px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: var(--blue);
+
+    transition:
+        width 0.25s ease;
+
+}
+
+
+.navigation a:hover {
+
+    color: var(--blue);
+
+}
+
+
+.navigation a:hover::after {
+
+    width: 100%;
+
+}
+
+
+.navigation a.active {
+
+    color: var(--blue);
+
+}
+
+
+.navigation a.active::after {
+
+    width: 100%;
+
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.menu-toggle {
+
+    display: none;
+
+    width: 42px;
+
+    height: 40px;
+
+    border: 1px solid var(--border);
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+    padding: 9px;
+
+}
+
+
+.menu-toggle span {
+
+    display: block;
+
+    width: 100%;
+
+    height: 2px;
+
+    background: var(--navy);
+
+    margin: 5px 0;
+
+}
+
+
+/* =====================================================
+   PAGE INTRO
+===================================================== */
+
+.publications-intro {
+
+    padding:
+
+        70px
+
+        7%
+
+        55px;
+
+    max-width: 1150px;
+
+}
+
+
+/* INTRO LABEL */
+
+.intro-label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: var(--blue);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.label-line {
+
+    width: 35px;
+
+    height: 2px;
+
+    background: var(--blue);
+
+}
+
+
+/* MAIN TITLE */
+
+.publications-intro h1 {
+
+    max-width: 950px;
+
+    font-size:
+        clamp(46px, 6vw, 80px);
+
+    line-height: 0.98;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 28px;
+
+}
+
+
+.publications-intro h1 span {
+
+    color: var(--blue);
+
+}
+
+
+/* INTRO TEXT */
+
+.publications-intro > p {
+
+    max-width: 700px;
+
+    color: var(--muted);
+
+    font-size: 17px;
+
+    line-height: 1.65;
+
+}
+
+
+/* =====================================================
+   RESEARCH DOMAINS
+===================================================== */
+
+.domains-section {
+
+    padding:
+
+        35px
+
+        7%
+
+        100px;
+
+}
+
+
+/* SECTION TITLE */
+
+.section-title {
+
+    margin-bottom: 38px;
+
+}
+
+
+.small-label {
+
+    color: var(--blue);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.section-title h2 {
+
+    font-size:
+        clamp(38px, 5vw, 62px);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+
+}
+
+
+.section-title h2 span {
+
+    color: var(--blue);
+
+}
+
+
+/* =====================================================
+   DOMAIN GRID
+===================================================== */
+
+.domain-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+/* =====================================================
+   DOMAIN CARD
+===================================================== */
+
+.domain-card {
+
+    min-height: 340px;
+
+    padding: 32px;
+
+    border: 1px solid var(--border);
+
+    background: #ffffff;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+
+}
+
+
+.domain-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        var(--blue);
+
+    box-shadow:
+        0 25px 60px
+        rgba(7, 17, 31, 0.08);
+
+}
+
+
+/* TOP */
+
+.domain-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+}
+
+
+.domain-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--blue);
+
+    font-size: 54px;
+
+    line-height: 1;
+
+}
+
+
+.domain-number {
+
+    color: var(--blue);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* BODY */
+
+.domain-body {
+
+    margin-top: 25px;
+
+}
+
+
+.domain-body h3 {
+
+    font-size: 25px;
+
+    line-height: 1.1;
+
+    letter-spacing: -0.5px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.domain-body p {
+
+    max-width: 360px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+}
+
+
+/* DOMAIN FOOTER */
+
+.domain-footer {
+
+    padding-top: 18px;
+
+    border-top: 1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    color: #7b8797;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+.domain-footer span:last-child {
+
+    color: var(--blue);
+
+    font-size: 17px;
+
+}
+
+
+/* =====================================================
+   ARTICLES SECTION
+===================================================== */
+
+.articles-section {
+
+    background: var(--light);
+
+    padding:
+
+        100px
+
+        7%
+
+        120px;
+
+}
+
+
+/* =====================================================
+   ARTICLES HEADER
+===================================================== */
+
+.articles-header {
+
+    max-width: 1100px;
+
+    margin:
+        0 auto
+        55px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+}
+
+
+.articles-header h2 {
+
+    font-size:
+        clamp(42px, 5vw, 68px);
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+
+}
+
+
+.articles-header h2 span {
+
+    color: var(--blue);
+
+}
+
+
+/* =====================================================
+   ARTICLE COUNT
+===================================================== */
+
+.article-count {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding-left: 25px;
+
+    border-left: 1px solid #cbd3de;
+
+}
+
+
+.article-count strong {
+
+    color: var(--navy);
+
+    font-size: 52px;
+
+    line-height: 1;
+
+}
+
+
+.article-count span {
+
+    color: #758295;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+
+    letter-spacing: 2px;
+
+    font-weight: 800;
+
+}
+
+
+/* =====================================================
+   ARTICLE CARD
+===================================================== */
+
+.article-card {
+
+    max-width: 1100px;
+
+    margin:
+        0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        100px 1fr;
+
+    gap: 45px;
+
+    padding:
+        55px 0;
+
+    border-top:
+        1px solid #d7dee7;
+
+    transition:
+        padding-left 0.3s ease;
+
+}
+
+
+.article-card:last-child {
+
+    border-bottom:
+        1px solid #d7dee7;
+
+}
+
+
+.article-card:hover {
+
+    padding-left: 12px;
+
+}
+
+
+/* =====================================================
+   ARTICLE NUMBER
+===================================================== */
+
+.article-index {
+
+    color: var(--blue);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    padding-top: 3px;
+
+}
+
+
+/* =====================================================
+   ARTICLE CONTENT
+===================================================== */
+
+.article-content {
+
+    max-width: 900px;
+
+}
+
+
+/* STATUS */
+
+.article-status {
+
+    color: var(--blue);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.accepted-status {
+
+    color: #718096;
+
+}
+
+
+/* TITLE */
+
+.article-content h3 {
+
+    max-width: 850px;
+
+    font-size:
+        clamp(29px, 4vw, 48px);
+
+    line-height: 1.06;
+
+    letter-spacing: -1.8px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* AUTHORS */
+
+.authors {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.authors strong {
+
+    color: var(--navy);
+
+}
+
+
+/* =====================================================
+   ARTICLE INFORMATION
+===================================================== */
+
+.article-information {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 45px;
+
+    padding:
+        22px 0;
+
+    border-top:
+        1px solid #d7dee7;
+
+    border-bottom:
+        1px solid #d7dee7;
+
+    margin-bottom: 25px;
+
+}
+
+
+.article-information > div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    max-width: 330px;
+
+}
+
+
+.article-information span {
+
+    color: #7b8797;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+.article-information strong {
+
+    color: var(--navy);
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+}
+
+
+.wide-information {
+
+    min-width: 330px;
+
+}
+
+
+/* =====================================================
+   ACCEPTED BADGE
+===================================================== */
+
+.accepted-badge {
+
+    display: inline-block;
+
+    border:
+        1px solid #8da0b5;
+
+    color:
+        #62758b;
+
+    padding:
+        7px 12px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =====================================================
+   ARTICLE LINK
+===================================================== */
+
+.article-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: var(--navy);
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    border-bottom:
+        1px solid var(--navy);
+
+    padding-bottom: 6px;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease,
+        gap 0.25s ease;
+
+}
+
+
+.article-link:hover {
+
+    color: var(--blue);
+
+    border-color: var(--blue);
+
+    gap: 18px;
+
+}
+
+
+.arrow {
+
+    font-size: 16px;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.site-footer {
+
+    background: #050c16;
+
+    color: #718096;
+
+    padding:
+        30px 7%;
+
+    text-align: center;
+
+    font-size: 12px;
+
+}
+
+
+.footer-separator {
+
+    margin:
+        0 8px;
+
+    color: #43566c;
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 950px) {
+
+
+    .navigation {
+
+        gap: 18px;
+
+    }
+
+
+    .domain-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .domain-card {
+
+        min-height: 300px;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 750px) {
+
+
+    /* HEADER */
+
+    .site-header {
+
+        height: 70px;
+
+        padding:
+            0 5%;
+
+    }
+
+
+    .menu-toggle {
+
+        display: block;
+
+    }
+
+
+    .navigation {
+
+        display: none;
+
+        position: absolute;
+
+        top: 70px;
+
+        left: 0;
+
+        right: 0;
+
+        background: #ffffff;
+
+        border-bottom:
+            1px solid var(--border);
+
+        padding:
+            22px 5%;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+
+    }
+
+
+    .navigation.show {
+
+        display: flex;
+
+    }
+
+
+    /* INTRO */
+
+    .publications-intro {
+
+        padding:
+            55px 5%
+            40px;
+
+    }
+
+
+    .publications-intro h1 {
+
+        letter-spacing: -2px;
+
+    }
+
+
+    /* DOMAINS */
+
+    .domains-section {
+
+        padding:
+            30px 5%
+            75px;
+
+    }
+
+
+    .section-title h2 {
+
+        letter-spacing: -2px;
+
+    }
+
+
+    /* ARTICLES */
+
+    .articles-section {
+
+        padding:
+            75px 5%
+            90px;
+
+    }
+
+
+    .articles-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 30px;
+
+    }
+
+
+    .article-count {
+
+        border-left: none;
+
+        padding-left: 0;
+
+    }
+
+
+    .article-card {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 18px;
+
+        padding:
+            45px 0;
+
+    }
+
+
+    .article-card:hover {
+
+        padding-left: 0;
+
+    }
+
+
+    .article-content h3 {
+
+        letter-spacing: -1px;
+
+    }
+
+
+    .article-information {
+
+        flex-direction: column;
+
+        gap: 22px;
+
+    }
+
+
+    .wide-information {
+
+        min-width: 0;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+
+    .brand-text strong {
+
+        font-size: 12px;
+
+    }
+
+
+    .brand-text span {
+
+        font-size: 9px;
+
+    }
+
+
+    .publications-intro h1 {
+
+        font-size: 43px;
+
+    }
+
+
+    .section-title h2 {
+
+        font-size: 38px;
+
+    }
+
+
+    .domain-card {
+
+        padding: 28px;
+
+    }
+
+
+    .article-content h3 {
+
+        font-size: 29px;
+
+    }
+
+
+    .article-information {
+
+        gap: 18px;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+.domain-card,
+.article-card {
+
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        padding-left 0.3s ease;
+
+}
+
+
+.domain-card.visible,
+.article-card.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
