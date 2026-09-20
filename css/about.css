@@ -36,6 +36,24 @@ body {
 }
 
 
+
+/* =====================================================
+   SITE HEADER / NAVIGATION
+===================================================== */
+
+.about-site-header { width:100%; display:flex; align-items:center; justify-content:space-between; flex-wrap:nowrap; padding:22px 45px; background:#fff; border-bottom:1px solid #e8eef5; position:relative; z-index:100; }
+.brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:#101827; flex-shrink:0; }
+.brand-mark { width:42px; height:42px; display:flex; align-items:center; justify-content:center; background:#07101f; color:#fff; border:2px solid #1473ff; border-radius:10px; font-size:20px; font-weight:900; box-shadow:0 0 18px rgba(20,115,255,.18); }
+.brand-text { display:flex; flex-direction:column; line-height:1; }
+.brand-first { font-size:13px; font-weight:800; letter-spacing:2px; color:#101827; }
+.brand-last { margin-top:4px; font-size:13px; font-weight:800; letter-spacing:3px; color:#1473ff; }
+.main-nav { display:flex; align-items:center; gap:30px; margin-left:auto; flex-shrink:0; }
+.main-nav a { position:relative; text-decoration:none; color:#53657d; font-size:14px; font-weight:700; transition:color .25s ease; }
+.main-nav a:hover,.main-nav a.active-page { color:#1473ff; }
+.main-nav a.active-page::after { content:""; position:absolute; left:0; right:0; bottom:-8px; height:2px; background:#1473ff; border-radius:2px; }
+.menu-toggle { display:none; width:44px; height:44px; padding:8px; border:1px solid #dce5ef; border-radius:10px; background:#fff; cursor:pointer; align-items:center; justify-content:center; flex-direction:column; gap:5px; z-index:200; }
+.menu-toggle span { display:block; width:23px; height:2px; background:#07101f; border-radius:2px; transition:transform .25s ease,opacity .25s ease; }
+
 /* =====================================================
    HEADER
 ===================================================== */
@@ -533,6 +551,33 @@ body {
 }
 
 
+
+
+/* =====================================================
+   ACHIEVEMENT BADGES
+   Used by about.html
+===================================================== */
+
+.achievement-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.achievement-badges span {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 14px;
+    color: #ffffff;
+    background: #1473ff;
+    border: 1px solid #3392ff;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 800;
+    box-shadow: 0 5px 15px rgba(20, 115, 255, 0.20);
+}
+
 /* =====================================================
    TAGS
 ===================================================== */
@@ -711,220 +756,6 @@ body {
 
 
 /* =====================================================
-   HOME BUTTON — TOP RIGHT
-===================================================== */
-
-.bottom-home {
-
-    position: fixed;
-
-    top: 25px;
-
-    right: 30px;
-
-    width: 58px;
-
-    height: 58px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: #07101f;
-
-    border:
-        2px solid
-        #1473ff;
-
-    border-radius: 50%;
-
-    color: white;
-
-    text-decoration: none;
-
-    font-size: 32px;
-
-    z-index: 1000;
-
-    box-shadow:
-
-        0 8px 25px
-        rgba(20, 115, 255, 0.25);
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-
-/* =====================================================
-   REVOLVING WHITE LIGHT
-===================================================== */
-
-.bottom-home::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: -4px;
-
-    border-radius: 50%;
-
-    padding: 3px;
-
-    background:
-        conic-gradient(
-            from 0deg,
-
-            transparent 0deg,
-
-            transparent 250deg,
-
-            rgba(255, 255, 255, 0.10) 270deg,
-
-            rgba(255, 255, 255, 0.45) 285deg,
-
-            #ffffff 300deg,
-
-            #ffffff 320deg,
-
-            rgba(255, 255, 255, 0.45) 335deg,
-
-            transparent 350deg,
-
-            transparent 360deg
-        );
-
-    animation:
-        homeLight 2.2s linear infinite;
-
-    z-index: -1;
-
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-
-    -webkit-mask-composite: xor;
-
-    mask-composite: exclude;
-
-}
-
-
-/* =====================================================
-   LIGHT GLOW
-===================================================== */
-
-.bottom-home::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: -6px;
-
-    border-radius: 50%;
-
-    background: transparent;
-
-    box-shadow:
-        0 0 10px
-        rgba(255, 255, 255, 0.40);
-
-    pointer-events: none;
-
-    z-index: -2;
-}
-
-
-/* =====================================================
-   ROTATION ANIMATION
-===================================================== */
-
-@keyframes homeLight {
-
-    from {
-
-        transform:
-            rotate(0deg);
-
-    }
-
-    to {
-
-        transform:
-            rotate(360deg);
-
-    }
-
-}
-
-
-/* =====================================================
-   HOME HOVER
-===================================================== */
-
-.bottom-home:hover {
-
-    transform:
-        scale(1.08);
-
-    background: #1473ff;
-
-    box-shadow:
-
-        0 12px 30px
-        rgba(20, 115, 255, 0.40);
-}
-
-
-/* =====================================================
-   SCROLL INDICATOR
-===================================================== */
-
-.scroll-indicator {
-
-    position: fixed;
-
-    right: 25px;
-
-    top: 45%;
-
-    text-align: center;
-
-    color: #1264e8;
-
-    font-weight: 800;
-
-    z-index: 30;
-}
-
-
-.scroll-title {
-
-    font-size: 18px;
-
-    line-height: 1.2;
-}
-
-
-.scroll-arrow {
-
-    margin-top: 10px;
-
-    font-size: 42px;
-
-    line-height: 1;
-
-    color: #1473ff;
-}
-
-
-/* =====================================================
    TABLET
 ===================================================== */
 
@@ -972,6 +803,18 @@ body {
 ===================================================== */
 
 @media (max-width: 900px) {
+    .about-site-header { padding:15px 20px; flex-wrap:nowrap; }
+    .menu-toggle { display:flex; margin-left:auto; flex-shrink:0; }
+    .main-nav { display:none; position:absolute; top:100%; left:0; right:0; flex-direction:column; align-items:stretch; gap:0; padding:10px 20px 20px; background:#fff; border-bottom:1px solid #e8eef5; box-shadow:0 15px 30px rgba(7,16,31,.08); }
+    .main-nav.active { display:flex; }
+    .main-nav a { width:100%; padding:15px 10px; font-size:15px; border-bottom:1px solid #edf2f7; }
+    .main-nav a:last-child { border-bottom:none; }
+    .main-nav a.active-page::after { display:none; }
+    .menu-toggle.active span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity:0; }
+    .menu-toggle.active span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+
 
     .about-header {
 
@@ -1090,34 +933,21 @@ body {
     }
 
 
+
+    .achievement-badges {
+        gap: 7px;
+    }
+
+    .achievement-badges span {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
     .timeline-card h2 {
 
         font-size: 21px;
     }
 
-
-    /* HOME BUTTON MOBILE */
-
-    .bottom-home {
-
-        top: 18px;
-
-        right: 20px;
-
-        width: 52px;
-
-        height: 52px;
-
-        font-size: 29px;
-    }
-
-
-    /* HIDE SCROLL INDICATOR */
-
-    .scroll-indicator {
-
-        display: none;
-    }
 
 
     .journey-continues {
@@ -1129,6 +959,133 @@ body {
     .journey-continues h2 {
 
         font-size: 23px;
+    }
+
+}
+
+@media (max-width: 500px) { .about-site-header{padding:13px 15px;} .brand-mark{width:38px;height:38px;font-size:18px;} .brand-first,.brand-last{font-size:11px;} .about-header h1{font-size:34px;} .eyebrow{font-size:11px;letter-spacing:4px;} .timeline-section{padding-left:12px;padding-right:12px;} .timeline{padding-left:30px;} .timeline-card,.timeline-item.left .timeline-card,.timeline-item.right .timeline-card{margin-left:30px;padding:19px;} .timeline-card h2{font-size:19px;} .timeline-year{font-size:14px;letter-spacing:3px;} .tags span{font-size:11px;} }
+
+@media (prefers-reduced-motion: reduce) { html{scroll-behavior:auto;} .timeline-marker,.timeline-card,.menu-toggle span,.main-nav a{transition:none;} }
+
+
+/* =====================================================
+   FINAL HEADER FIX
+   Keep navigation on the RIGHT
+===================================================== */
+
+/* If the header is still using class="about-header",
+   style ONLY the HEADER — not the About Me section */
+
+header.about-header {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    flex-wrap: nowrap;
+
+    padding: 22px 45px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e8eef5;
+
+    position: relative;
+    z-index: 100;
+}
+
+
+/* Brand stays on the LEFT */
+
+header.about-header .brand {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+
+    text-decoration: none;
+}
+
+
+/* Navigation goes to the RIGHT */
+
+header.about-header .main-nav {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    margin-left: auto;
+
+    flex-shrink: 0;
+}
+
+
+/* =====================================================
+   MOBILE HEADER
+===================================================== */
+
+@media (max-width: 900px) {
+
+    header.about-header {
+        padding: 15px 20px;
+
+        flex-wrap: nowrap;
+    }
+
+    header.about-header .menu-toggle {
+        display: flex;
+
+        margin-left: auto;
+
+        flex-shrink: 0;
+    }
+
+    header.about-header .main-nav {
+        display: none;
+
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        margin-left: 0;
+
+        padding: 10px 20px 20px;
+
+        background: #ffffff;
+
+        border-bottom: 1px solid #e8eef5;
+
+        box-shadow:
+            0 15px 30px rgba(7, 16, 31, 0.08);
+    }
+
+    header.about-header .main-nav.active {
+        display: flex;
+    }
+
+    header.about-header .main-nav a {
+        width: 100%;
+
+        padding: 15px 10px;
+
+        font-size: 15px;
+
+        border-bottom: 1px solid #edf2f7;
+    }
+
+    header.about-header .main-nav a:last-child {
+        border-bottom: none;
     }
 
 }

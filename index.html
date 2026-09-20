@@ -2,376 +2,413 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Sukhwinder Singh | AI • Data • Software</title>
 
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <!-- Load JavaScript after HTML is parsed -->
+    <script src="js/index.js" defer></script>
 </head>
 
 <body>
 
-<header class="site-header">
+    <!-- =========================
+         HEADER
+    ========================== -->
 
-    <div class="logo">
-        <span>S</span>
-        <div>
-            <strong>SUKHWINDER</strong>
-            <small>SINGH</small>
-        </div>
-    </div>
+    <header class="site-header">
 
-    <button class="menu-toggle" id="menuToggle">
-        ☰
-    </button>
+        <div class="header-inner">
 
-    <nav class="navigation" id="navigation">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="projects.html">Projects</a>
-        <a href="expertise.html">Expertise</a>
-        <a href="publications.html">Publications & Awards</a>
-    </nav>
+            <!-- Logo -->
+            <a href="index.html" class="brand">
 
-</header>
+                <div class="brand-mark">
+                    S
+                </div>
+
+                <div class="brand-text">
+                    <span class="brand-first">
+                        SUKHWINDER
+                    </span>
+
+                    <span class="brand-last">
+                        SINGH
+                    </span>
+                </div>
+
+            </a>
 
 
-<main>
+            <!-- Desktop / Mobile Navigation -->
 
-    <!-- HERO -->
+            <nav class="main-nav" id="mainNav">
 
-    <section class="hero">
-
-        <div class="hero-content">
-
-            <p class="eyebrow">AI • DATA • SOFTWARE</p>
-
-            <h1>
-                Building practical solutions
-                with <span>AI, data & software.</span>
-            </h1>
-
-            <p class="hero-description">
-                I am Sukhwinder Singh, an AI and software professional
-                focused on building practical technology solutions,
-                exploring machine learning, data analytics and cloud
-                technologies.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="projects.html" class="btn btn-primary">
-                    View My Projects
+                <a href="index.html">
+                    Home
                 </a>
 
-                <a href="assets/documents/Sukhwinder-Singh-CV.pdf"
-                   class="btn btn-secondary"
-                   target="_blank">
-                    Download CV
+                <a href="about.html">
+                    About Me
                 </a>
-            </div>
 
-            <div class="tech-tags">
-                <span>Python</span>
-                <span>AI / ML</span>
-                <span>Data Analytics</span>
-                <span>Computer Vision</span>
-                <span>Azure</span>
-            </div>
+                <a href="aprojects.html">
+                    Projects
+                </a>
+
+                <a href="aexpertise.html">
+                    Expertise
+                </a>
+
+                <a href="publications.html">
+                    Publications & Awards
+                </a>
+
+            </nav>
+
+
+            <!-- Mobile Menu Button -->
+
+            <button
+                type="button"
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="mainNav"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
 
         </div>
 
+    </header>
 
-        <!-- RIGHT SIDE -->
 
-        <div class="hero-panel">
+    <!-- =========================
+         MAIN
+    ========================== -->
 
-            <div class="panel-grid"></div>
+    <main>
 
-            <div class="panel-content">
+        <!-- HERO -->
 
-                <p class="panel-label">CURRENT FOCUS</p>
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    AI • DATA • SOFTWARE
+                </div>
+
+
+                <h1>
+                    Building practical
+                    solutions with
+                    <span>AI, data & software.</span>
+                </h1>
+
+
+                <p class="hero-description">
+                    I am Sukhwinder Singh, an AI and software
+                    professional focused on building practical
+                    technology solutions, exploring machine
+                    learning, data analytics and cloud technologies.
+                </p>
+
+
+                <!-- Buttons -->
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="projects.html"
+                        class="btn btn-primary"
+                    >
+                        View My Projects
+                    </a>
+
+                    <a
+                        href="assets/documents/Sukhwinder-Singh-CV.pdf"
+                        class="btn btn-secondary"
+                        target="_blank"
+                    >
+                        Download CV
+                    </a>
+
+                </div>
+
+
+                <!-- Skills -->
+
+                <div class="skill-tags">
+
+                    <span>Python</span>
+                    <span>AI / ML</span>
+                    <span>Data Analytics</span>
+                    <span>Computer Vision</span>
+                    <span>Azure</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             WHAT I BRING
+        ========================== -->
+
+        <section class="what-i-bring">
+
+            <div class="section-label">
+                WHAT I BRING
+            </div>
+
+            <h2>
+                Technology with a practical focus.
+            </h2>
+
+
+            <div class="capabilities">
+
+                <article class="capability">
+
+                    <span class="number">
+                        01
+                    </span>
+
+                    <h3>
+                        AI & Machine Learning
+                    </h3>
+
+                    <p>
+                        Exploring machine learning and
+                        artificial intelligence to develop
+                        practical technology solutions.
+                    </p>
+
+                </article>
+
+
+                <article class="capability">
+
+                    <span class="number">
+                        02
+                    </span>
+
+                    <h3>
+                        Data & Analytics
+                    </h3>
+
+                    <p>
+                        Working with data, analytics and
+                        time-series concepts to understand
+                        real-world problems.
+                    </p>
+
+                </article>
+
+
+                <article class="capability">
+
+                    <span class="number">
+                        03
+                    </span>
+
+                    <h3>
+                        Software & Cloud
+                    </h3>
+
+                    <p>
+                        Building software projects with
+                        Python, web technologies and
+                        Microsoft Azure.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FEATURED PROJECTS
+        ========================== -->
+
+        <section class="featured-projects">
+
+            <div class="section-label">
+                SELECTED WORK
+            </div>
+
+            <div class="section-heading-row">
 
                 <h2>
-                    Turning ideas into
-                    <span>working systems.</span>
+                    Projects
                 </h2>
 
-                <p>
-                    Exploring the intersection of artificial intelligence,
-                    data and software engineering.
-                </p>
-
-                <div class="skill-animation">
-
-                    <div class="skill active">
-                        AI & Machine Learning
-                    </div>
-
-                    <div class="skill">
-                        Data Analytics
-                    </div>
-
-                    <div class="skill">
-                        Python
-                    </div>
-
-                    <div class="skill">
-                        Computer Vision
-                    </div>
-
-                    <div class="skill">
-                        Cloud & Azure
-                    </div>
-
-                    <div class="skill">
-                        Django
-                    </div>
-
-                    <div class="skill">
-                        Cybersecurity
-                    </div>
-
-                    <div class="skill">
-                        SQL
-                    </div>
-
-                    <div class="skill">
-                        Git & GitHub
-                    </div>
-
-                    <div class="skill">
-                        Software Development
-                    </div>
-
-                </div>
+                <a href="projects.html">
+                    View all projects →
+                </a>
 
             </div>
 
-        </div>
 
-    </section>
+            <div class="project-grid">
+
+                <article class="project-card">
+
+                    <span>
+                        01
+                    </span>
+
+                    <h3>
+                        Precision Agriculture
+                    </h3>
+
+                    <p>
+                        A technology project focused on
+                        applying data and intelligent systems
+                        to agricultural applications.
+                    </p>
+
+                    <a href="projects.html">
+                        Explore project →
+                    </a>
+
+                </article>
 
 
-    <!-- WHAT I BRING -->
+                <article class="project-card">
 
-    <section class="section">
+                    <span>
+                        02
+                    </span>
 
-        <div class="section-heading">
+                    <h3>
+                        Food Adulteration System
+                    </h3>
 
-            <p class="eyebrow">WHAT I BRING</p>
+                    <p>
+                        A project exploring technology-based
+                        approaches for identifying food
+                        adulteration.
+                    </p>
+
+                    <a href="projects.html">
+                        Explore project →
+                    </a>
+
+                </article>
+
+
+                <article class="project-card">
+
+                    <span>
+                        03
+                    </span>
+
+                    <h3>
+                        Fake News Detection System
+                    </h3>
+
+                    <p>
+                        A machine-learning oriented project
+                        focused on analysing information and
+                        detecting potentially misleading content.
+                    </p>
+
+                    <a href="projects.html">
+                        Explore project →
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONNECT
+        ========================== -->
+
+        <section class="connect">
+
+            <div class="section-label">
+                LET'S CONNECT
+            </div>
 
             <h2>
-                Technology with a
-                <span>practical mindset.</span>
+                Interested in technology,
+                AI and practical problem solving?
             </h2>
 
-        </div>
+            <p>
+                Explore my projects, research and technical
+                expertise, or connect with me professionally.
+            </p>
 
+            <div class="connect-buttons">
 
-        <div class="cards">
-
-            <article class="info-card">
-
-                <div class="card-number">01</div>
-
-                <h3>AI & Machine Learning</h3>
-
-                <p>
-                    Building and exploring machine learning solutions
-                    with Python, data and modern AI techniques.
-                </p>
-
-            </article>
-
-
-            <article class="info-card">
-
-                <div class="card-number">02</div>
-
-                <h3>Data & Analytics</h3>
-
-                <p>
-                    Working with data to discover patterns,
-                    generate insights and support practical decisions.
-                </p>
-
-            </article>
-
-
-            <article class="info-card">
-
-                <div class="card-number">03</div>
-
-                <h3>Software & Cloud</h3>
-
-                <p>
-                    Developing applications and deploying technology
-                    solutions using software engineering and Azure.
-                </p>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- FEATURED PROJECTS -->
-
-    <section class="section projects-preview">
-
-        <div class="section-heading">
-
-            <p class="eyebrow">SELECTED WORK</p>
-
-            <h2>
-                Projects that demonstrate
-                <span>what I can build.</span>
-            </h2>
-
-        </div>
-
-
-        <div class="project-grid">
-
-            <article class="project-card">
-
-                <div class="project-top">
-                    <span>AI / ML</span>
-                    <span>01</span>
-                </div>
-
-                <h3>Machine Learning Project</h3>
-
-                <p>
-                    A practical machine learning project demonstrating
-                    data preparation, model development and evaluation.
-                </p>
-
-                <div class="project-tech">
-                    Python · Machine Learning · Data
-                </div>
-
-                <a href="projects.html">
-                    Explore Project →
+                <a
+                    href="https://www.linkedin.com/in/sukhaa02/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LinkedIn
                 </a>
 
-            </article>
-
-
-            <article class="project-card">
-
-                <div class="project-top">
-                    <span>DATA</span>
-                    <span>02</span>
-                </div>
-
-                <h3>Data Analytics Project</h3>
-
-                <p>
-                    An analytical project focused on transforming
-                    raw data into useful insights and visualizations.
-                </p>
-
-                <div class="project-tech">
-                    Python · Analytics · Visualization
-                </div>
-
-                <a href="projects.html">
-                    Explore Project →
+                <a
+                    href="https://github.com/sukha002"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
                 </a>
 
-            </article>
-
-
-            <article class="project-card">
-
-                <div class="project-top">
-                    <span>CLOUD</span>
-                    <span>03</span>
-                </div>
-
-                <h3>Azure Deployment</h3>
-
-                <p>
-                    A cloud deployment project demonstrating application
-                    hosting, GitHub integration and Azure infrastructure.
-                </p>
-
-                <div class="project-tech">
-                    Azure · GitHub · Cloud
-                </div>
-
-                <a href="projects.html">
-                    Explore Project →
+                <a
+                    href="mailto:sukhasingh2292@gmail.com"
+                >
+                    Email
                 </a>
 
-            </article>
+            </div>
 
-        </div>
+        </section>
 
-        <div class="center-button">
-            <a href="projects.html" class="btn btn-primary">
-                View All Projects
-            </a>
-        </div>
-
-    </section>
+    </main>
 
 
-    <!-- CONNECT -->
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
-    <section class="connect">
-
-        <p class="eyebrow">LET'S CONNECT</p>
-
-        <h2>
-            Interested in technology,
-            <span>AI and innovation?</span>
-        </h2>
+    <footer class="site-footer">
 
         <p>
-            I'm open to opportunities, collaborations and
-            conversations around AI, data and software.
+            © 2026 Sukhwinder Singh
         </p>
 
-        <div class="connect-buttons">
+        <p>
+            AI • Data • Software
+        </p>
 
-            <a href="mailto:sukhasingh2292@gmail.com"
-               class="btn btn-primary">
-                Email Me
-            </a>
+    </footer>
 
-            <a href="https://www.linkedin.com/in/sukhaa02/"
-               target="_blank"
-               class="btn btn-secondary">
-                LinkedIn
-            </a>
-
-            <a href="https://github.com/sukha002"
-               target="_blank"
-               class="btn btn-secondary">
-                GitHub
-            </a>
-
-        </div>
-
-    </section>
-
-</main>
-
-
-<footer>
-
-    <p>
-        © <span id="year"></span> Sukhwinder Singh.
-        AI • Data • Software
-    </p>
-
-</footer>
-
-
-<script src="js/script.js"></script>
 
 </body>
 </html>

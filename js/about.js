@@ -1,54 +1,110 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    if (menuToggle && mainNav) {
+
+        menuToggle.addEventListener("click", function () {
+
+            menuToggle.classList.toggle("active");
+
+            mainNav.classList.toggle("active");
+
+            const isOpen =
+                menuToggle.classList.contains("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
+        });
+
+
+        /* Close menu after selecting a page */
+
+        const navLinks =
+            mainNav.querySelectorAll("a");
+
+        navLinks.forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                menuToggle.classList.remove("active");
+
+                mainNav.classList.remove("active");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            });
+
+        });
+
+    }
+
+
+    /* =====================================================
+       MOVING TIMELINE MARKER
+    ===================================================== */
+
+    const marker =
+        document.querySelector(".timeline-marker");
+
     const timeline =
         document.querySelector(".timeline");
 
-    const marker =
-        document.getElementById("timelineMarker");
-
-    const items =
-        document.querySelectorAll(".timeline-item");
-
-    if (!timeline || !marker || items.length === 0) {
+    if (!marker || !timeline) {
         return;
     }
 
 
+    const items =
+        Array.from(
+            timeline.querySelectorAll(".timeline-item")
+        );
+
+
+    if (!items.length) {
+        return;
+    }
+
+
+    /* =====================================================
+       FIND THE TIMELINE ITEM CLOSEST TO SCREEN CENTER
+    ===================================================== */
+
     function moveMarker() {
 
-        const timelineRect =
-            timeline.getBoundingClientRect();
-
         const screenCenter =
-            window.innerHeight * 0.50;
+            window.innerHeight / 2;
+
 
         let closestItem = null;
 
         let closestDistance = Infinity;
 
 
-        /* Find the timeline block
-           closest to the screen center */
-
         items.forEach(function (item) {
 
-            const dot =
-                item.querySelector(".timeline-dot");
+            const rect =
+                item.getBoundingClientRect();
 
-            if (!dot) {
-                return;
-            }
 
-            const dotRect =
-                dot.getBoundingClientRect();
+            const itemCenter =
+                rect.top + (rect.height / 2);
 
-            const dotCenter =
-                dotRect.top +
-                dotRect.height / 2;
 
             const distance =
                 Math.abs(
-                    dotCenter - screenCenter
+                    itemCenter - screenCenter
                 );
 
 
@@ -57,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 closestDistance = distance;
 
                 closestItem = item;
+
             }
 
         });
@@ -67,29 +124,54 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        /* Get current dot */
+        /* =================================================
+           CALCULATE MARKER POSITION
+        ================================================= */
 
-        const dot =
-            closestItem.querySelector(".timeline-dot");
+        const timelineRect =
+            timeline.getBoundingClientRect();
 
-        const dotRect =
-            dot.getBoundingClientRect();
+        const itemRect =
+            closestItem.getBoundingClientRect();
 
 
-        /* Position large marker */
+        const itemCenter =
+            itemRect.top +
+            (itemRect.height / 2);
 
-        const markerPosition =
-            dotRect.top +
-            dotRect.height / 2 -
+
+        let markerTop =
+            itemCenter -
             timelineRect.top -
-            32;
+            (marker.offsetHeight / 2);
+
+
+        /* Keep marker inside timeline */
+
+        const minimumTop = 0;
+
+        const maximumTop =
+            timeline.offsetHeight -
+            marker.offsetHeight;
+
+
+        markerTop =
+            Math.max(
+                minimumTop,
+                Math.min(
+                    markerTop,
+                    maximumTop
+                )
+            );
 
 
         marker.style.top =
-            markerPosition + "px";
+            markerTop + "px";
 
 
-        /* Highlight current block */
+        /* =================================================
+           ACTIVE CARD
+        ================================================= */
 
         items.forEach(function (item) {
 
@@ -103,12 +185,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* Initial position */
+    /* =====================================================
+       INITIAL POSITION
+    ===================================================== */
 
     moveMarker();
 
 
-    /* Move while scrolling */
+    /* =====================================================
+       SCROLL
+    ===================================================== */
 
     window.addEventListener(
         "scroll",
@@ -119,11 +205,42 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
-    /* Recalculate when window changes */
+    /* =====================================================
+       RESIZE
+    ===================================================== */
 
     window.addEventListener(
         "resize",
         moveMarker
+    );
+
+
+    /* =====================================================
+       HANDLE MOBILE MENU RESIZE
+    ===================================================== */
+
+    window.addEventListener(
+        "resize",
+        function () {
+
+            if (
+                window.innerWidth > 900 &&
+                mainNav &&
+                menuToggle
+            ) {
+
+                mainNav.classList.remove("active");
+
+                menuToggle.classList.remove("active");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        }
     );
 
 });
