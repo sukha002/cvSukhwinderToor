@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>Research Projects | Sukhwinder Singh</title>	
 
-    <title>Research Projects | Sukhwinder Singh</title>
-
-    <link rel="stylesheet"
-          href="css/researchprojects.css">
-
+    <link rel="stylesheet" href="css\research.css">
 </head>
 
-
 <body>
-
 
     <!-- =========================
          HEADER
     ========================== -->
+<header class="site-header">
 
-    <header class="site-header">
+    <div class="container nav-container">
 
-        <div class="container nav-container">
-
-            <a href="index.html" class="logo">
-                SUKHWINDER <span>SINGH</span>
-            </a>
+        <a href="index.html" class="logo">
+            SUKHWINDER <span>SINGH</span>
+        </a>
 
 
-            <nav class="navigation">
 
-                <a href="index.html">
-                    Home
-                </a>
 
-                <a href="about.html">
-                    About
-                </a>
+    <!-- MOBILE MENU -->
 
-                <a href="publications.html">
-                    Publications
-                </a>
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Toggle navigation">
 
-                <a href="research.html" class="active">
-                    Research
-                </a>
+        <span></span>
+        <span></span>
+        <span></span>
 
-            </nav>
+    </button>
 
-        </div>
 
-    </header>
+
+
+    <!-- Navigation -->
+        <nav class="navigation">  
+			<a href="index.html" >Home</a>
+            <a href="about.html" > About</a>
+            <a href="research.html" class="active">Research</a>
+            <a href="publications.html">Publications</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!- the above code is same at all pages and it must be 
+
+
 
 
 
@@ -580,6 +583,7 @@
         </div>
 
     </footer>
+<script src="js\publications.js"></script>
 
 
 </body>

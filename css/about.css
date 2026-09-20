@@ -1,248 +1,380 @@
-/* =====================================================
+/* =========================================================
+   ABOUT ME PAGE
+   GLOBAL THEME: DARK NAVY + CYAN
+   Based on the classes/IDs used in about.html
+========================================================= */
+
+
+/* =========================================================
    GLOBAL
-===================================================== */
+========================================================= */
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-
 
 html {
     scroll-behavior: smooth;
 }
 
-
 html,
 body {
     width: 100%;
     max-width: 100%;
-
     overflow-x: hidden;
 }
 
-
 body {
-
     margin: 0;
+    padding: 0;
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f4f7fa;
+    color: #101722;
+
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+    width: 100%;
+    background: #07131f;
+    border-bottom: 1px solid #1d3042;
+    position: relative;
+    z-index: 100;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1400px;
+    height: 47px;
+
+    margin: 0 auto;
+    padding: 0 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    color: #ffffff;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+    white-space: nowrap;
+
+    transition: color 0.2s ease;
+}
+
+.logo span {
+    color: #12aee8;
+}
+
+.logo:hover {
+    color: #12aee8;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navigation {
+    display: flex;
+    align-items: center;
+
+    gap: 27px;
+}
+
+.navigation a {
+    position: relative;
+
+    color: #8fa0b0;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    padding: 14px 0;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.navigation a:hover {
+    color: #ffffff;
+}
+
+.navigation a.active {
+    color: #12aee8;
+}
+
+.navigation a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 4px;
+
+    height: 2px;
+
+    background: #12aee8;
+    border-radius: 2px;
+
+    box-shadow: 0 0 8px rgba(18, 174, 232, 0.45);
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.menu-toggle {
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 8px;
+
+    border: 1px solid #294057;
+    border-radius: 10px;
+
+    background: #07131f;
+
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+    gap: 5px;
+
+    z-index: 200;
+}
+
+.menu-toggle span {
+    display: block;
+
+    width: 23px;
+    height: 2px;
 
     background: #ffffff;
+    border-radius: 2px;
 
-    color: #111827;
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.menu-toggle:hover {
+    border-color: #12aee8;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 
+/* =========================================================
+   PAGE INTRO
+========================================================= */
 
-/* =====================================================
-   SITE HEADER / NAVIGATION
-===================================================== */
+.page-intro {
+    position: relative;
 
-.about-site-header { width:100%; display:flex; align-items:center; justify-content:space-between; flex-wrap:nowrap; padding:22px 45px; background:#fff; border-bottom:1px solid #e8eef5; position:relative; z-index:100; }
-.brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:#101827; flex-shrink:0; }
-.brand-mark { width:42px; height:42px; display:flex; align-items:center; justify-content:center; background:#07101f; color:#fff; border:2px solid #1473ff; border-radius:10px; font-size:20px; font-weight:900; box-shadow:0 0 18px rgba(20,115,255,.18); }
-.brand-text { display:flex; flex-direction:column; line-height:1; }
-.brand-first { font-size:13px; font-weight:800; letter-spacing:2px; color:#101827; }
-.brand-last { margin-top:4px; font-size:13px; font-weight:800; letter-spacing:3px; color:#1473ff; }
-.main-nav { display:flex; align-items:center; gap:30px; margin-left:auto; flex-shrink:0; }
-.main-nav a { position:relative; text-decoration:none; color:#53657d; font-size:14px; font-weight:700; transition:color .25s ease; }
-.main-nav a:hover,.main-nav a.active-page { color:#1473ff; }
-.main-nav a.active-page::after { content:""; position:absolute; left:0; right:0; bottom:-8px; height:2px; background:#1473ff; border-radius:2px; }
-.menu-toggle { display:none; width:44px; height:44px; padding:8px; border:1px solid #dce5ef; border-radius:10px; background:#fff; cursor:pointer; align-items:center; justify-content:center; flex-direction:column; gap:5px; z-index:200; }
-.menu-toggle span { display:block; width:23px; height:2px; background:#07101f; border-radius:2px; transition:transform .25s ease,opacity .25s ease; }
+    width: 100%;
+    max-width: 1000px;
 
-/* =====================================================
-   HEADER
-===================================================== */
+    margin: 0 auto;
 
-.about-header {
+    padding: 65px 25px 45px;
 
     text-align: center;
-
-    padding:
-        60px
-        20px
-        45px;
 }
 
+.intro-line {
+    width: 48px;
+    height: 3px;
+
+    margin: 0 auto 20px;
+
+    background: #12aee8;
+    border-radius: 3px;
+
+    box-shadow:
+        0 0 12px rgba(18, 174, 232, 0.35);
+}
 
 .eyebrow {
+    color: #12aee8;
 
-    color: #1264e8;
-
-    font-size: 14px;
-
+    font-size: 13px;
     font-weight: 800;
 
-    letter-spacing: 6px;
+    letter-spacing: 5px;
 
     margin-bottom: 8px;
 }
 
-
-.about-header h1 {
-
+.page-intro h1 {
     margin: 0;
 
-    font-size: 52px;
+    color: #101722;
 
+    font-size: 52px;
     font-weight: 800;
 
-    color: #101827;
+    line-height: 1.1;
 }
 
+.intro-text {
+    max-width: 760px;
 
-.about-header p {
+    margin: 14px auto 0;
 
-    max-width: 850px;
-
-    margin:
-        10px
-        auto
-        0;
-
-    color: #53657d;
+    color: #607286;
 
     font-size: 17px;
-
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 
-/* =====================================================
+/* =========================================================
    TIMELINE SECTION
-===================================================== */
+========================================================= */
 
 .timeline-section {
-
     width: 100%;
 
-    max-width: 100%;
-
-    padding:
-        20px
-        30px
-        100px;
+    padding: 20px 30px 100px;
 
     overflow: hidden;
 }
 
-
 .timeline {
-
     position: relative;
 
     width: 100%;
-
     max-width: 1200px;
 
     margin: 0 auto;
 
-    padding:
-        20px
-        0
-        80px;
+    padding: 20px 0 80px;
 }
 
 
-/* =====================================================
-   MAIN BLUE/GRAY LINE
-===================================================== */
+/* =========================================================
+   TIMELINE MAIN LINE
+========================================================= */
 
 .timeline::before {
-
     content: "";
 
     position: absolute;
 
     top: 0;
-
     bottom: 0;
-
     left: 50%;
 
     width: 4px;
 
-    background: #dce5ef;
+    background: #d3dde7;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     z-index: 1;
 }
 
 
-/* =====================================================
-   MOVING BLUE MARKER
-===================================================== */
+/* =========================================================
+   MOVING MARKER
+========================================================= */
 
 .timeline-marker {
-
     position: absolute;
 
     left: 50%;
-
     top: 0;
 
     width: 64px;
-
     height: 64px;
 
-    background: #07101f;
+    background: #07131f;
 
-    border:
-        6px solid
-        #1473ff;
+    border: 6px solid #12aee8;
 
     border-radius: 50%;
 
-    transform:
-        translate(-50%, 0);
+    transform: translate(-50%, 0);
 
     z-index: 20;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     box-shadow:
+        0 0 0 8px rgba(18, 174, 232, 0.10),
+        0 0 30px rgba(18, 174, 232, 0.30);
 
-        0 0 0 8px
-        rgba(20, 115, 255, 0.12),
-
-        0 0 30px
-        rgba(20, 115, 255, 0.35);
-
-    transition:
-        top 0.25s ease-out;
+    transition: top 0.25s ease-out;
 }
-
 
 .timeline-marker span {
-
     display: block;
 
-    color: white;
+    color: #ffffff;
 
     font-size: 27px;
+
+    line-height: 1;
 }
 
 
-/* =====================================================
+/* =========================================================
    TIMELINE ITEMS
-===================================================== */
+========================================================= */
 
 .timeline-item {
-
     position: relative;
 
     width: 100%;
-
     min-height: 210px;
 
     margin-bottom: 45px;
@@ -253,77 +385,61 @@ body {
 }
 
 
-/* =====================================================
+/* =========================================================
    TIMELINE DOTS
-===================================================== */
+========================================================= */
 
 .timeline-dot {
-
     position: absolute;
 
     left: 50%;
-
     top: 50%;
 
     width: 18px;
-
     height: 18px;
 
-    background: #1473ff;
+    background: #12aee8;
 
-    border:
-        4px solid
-        white;
+    border: 4px solid #f4f7fa;
 
     border-radius: 50%;
 
-    transform:
-        translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
     z-index: 10;
 
     box-shadow:
-
-        0 0 0 6px
-        rgba(20, 115, 255, 0.10);
+        0 0 0 6px rgba(18, 174, 232, 0.10),
+        0 0 12px rgba(18, 174, 232, 0.25);
 }
 
 
-/* =====================================================
-   DARK TIMELINE CARDS
-===================================================== */
+/* =========================================================
+   TIMELINE CARDS
+========================================================= */
 
 .timeline-card {
-
     position: relative;
 
-    width:
-        calc(50% - 65px);
-
+    width: calc(50% - 65px);
     max-width: 540px;
 
-    padding:
-        28px
-        32px;
+    padding: 28px 32px;
 
     background:
         linear-gradient(
             135deg,
-            #07101f 0%,
-            #0c182b 100%
+            #07131f 0%,
+            #0c1b2b 100%
         );
 
-    color: white;
+    color: #ffffff;
 
-    border:
-        2px solid
-        #172943;
-
+    border: 2px solid #1d3042;
     border-radius: 16px;
 
     box-shadow:
-        0 15px 35px
-        rgba(4, 15, 30, 0.12);
+        0 15px 35px rgba(4, 15, 30, 0.16);
 
     overflow: hidden;
 
@@ -333,102 +449,104 @@ body {
         box-shadow 0.3s ease;
 }
 
+.timeline-card::before {
+    content: "";
 
-/* LEFT */
+    position: absolute;
 
-.timeline-item.left
-.timeline-card {
+    top: 0;
+    left: 0;
 
-    margin-right: auto;
+    width: 100%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #12aee8,
+            transparent
+        );
+
+    opacity: 0.7;
 }
 
 
-/* RIGHT */
+/* =========================================================
+   LEFT / RIGHT CARDS
+========================================================= */
 
-.timeline-item.right
-.timeline-card {
+.timeline-item.left .timeline-card {
+    margin-right: auto;
+}
 
+.timeline-item.right .timeline-card {
     margin-left: auto;
 }
 
 
-/* =====================================================
+/* =========================================================
    CONNECTOR LINES
-===================================================== */
+========================================================= */
 
-.timeline-item.left
-.timeline-card::after {
-
+.timeline-item.left .timeline-card::after {
     content: "";
 
     position: absolute;
 
     right: -65px;
-
     top: 50%;
 
     width: 65px;
-
     height: 2px;
 
-    background: #1473ff;
+    background: #12aee8;
 
-    transform:
-        translateY(-50%);
+    transform: translateY(-50%);
+
+    box-shadow: 0 0 7px rgba(18, 174, 232, 0.25);
 }
 
-
-.timeline-item.right
-.timeline-card::after {
-
+.timeline-item.right .timeline-card::after {
     content: "";
 
     position: absolute;
 
     left: -65px;
-
     top: 50%;
 
     width: 65px;
-
     height: 2px;
 
-    background: #1473ff;
+    background: #12aee8;
 
-    transform:
-        translateY(-50%);
+    transform: translateY(-50%);
+
+    box-shadow: 0 0 7px rgba(18, 174, 232, 0.25);
 }
 
 
-/* =====================================================
+/* =========================================================
    ACTIVE CARD
-===================================================== */
+========================================================= */
 
-.timeline-item.active
-.timeline-card {
-
-    border-color: #1473ff;
+.timeline-item.active .timeline-card {
+    border-color: #12aee8;
 
     box-shadow:
-
-        0 0 0 1px
-        #1473ff,
-
-        0 18px 45px
-        rgba(20, 115, 255, 0.20);
+        0 0 0 1px #12aee8,
+        0 18px 45px rgba(18, 174, 232, 0.20);
 }
 
 
-/* =====================================================
+/* =========================================================
    YEAR
-===================================================== */
+========================================================= */
 
 .timeline-year {
-
-    color: #2196ff;
+    color: #12aee8;
 
     font-size: 17px;
-
     font-weight: 800;
 
     letter-spacing: 5px;
@@ -437,153 +555,109 @@ body {
 }
 
 
-/* =====================================================
+/* =========================================================
    CARD HEADINGS
-===================================================== */
+========================================================= */
 
 .timeline-card h2 {
-
-    margin:
-        0
-        0
-        7px;
+    margin: 0 0 7px;
 
     color: #ffffff;
 
     font-size: 24px;
-
     line-height: 1.25;
 
     overflow-wrap: break-word;
 }
 
-
 .timeline-card h3 {
+    margin: 0 0 12px;
 
-    margin:
-        0
-        0
-        12px;
-
-    color: #f1f5f9;
+    color: #dce8f2;
 
     font-size: 16px;
-
     font-weight: 700;
 
     overflow-wrap: break-word;
 }
 
 
-/* =====================================================
+/* =========================================================
    CARD TEXT
-===================================================== */
+========================================================= */
 
 .timeline-card p {
-
     margin: 0;
 
-    color: #cbd5e1;
+    color: #b9c8d6;
 
     font-size: 15px;
-
     line-height: 1.65;
 
     overflow-wrap: break-word;
-
     word-wrap: break-word;
 }
 
-
 .additional-skills {
-
     margin-top: 12px !important;
 }
 
 
-/* =====================================================
-   BLUE ACHIEVEMENT BADGES
-===================================================== */
-
-.achievement-row {
-
-    display: flex;
-
-    gap: 10px;
-
-    margin-top: 15px;
-}
-
-
-.achievement {
-
-    display: inline-flex;
-
-    align-items: center;
-}
-
-
-.achievement-value {
-
-    display: inline-block;
-
-    padding:
-        7px
-        14px;
-
-    color: #ffffff;
-
-    background: #1473ff;
-
-    border:
-        1px solid
-        #3392ff;
-
-    border-radius: 20px;
-
-    font-size: 14px;
-
-    font-weight: 800;
-
-    box-shadow:
-        0 5px 15px
-        rgba(20, 115, 255, 0.25);
-}
-
-
-
-
-/* =====================================================
+/* =========================================================
    ACHIEVEMENT BADGES
-   Used by about.html
-===================================================== */
+========================================================= */
 
 .achievement-badges {
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 10px;
+
     margin-top: 15px;
 }
 
 .achievement-badges span {
     display: inline-flex;
     align-items: center;
+
     padding: 7px 14px;
+
     color: #ffffff;
-    background: #1473ff;
-    border: 1px solid #3392ff;
+
+    background: #0b6f99;
+
+    border: 1px solid #12aee8;
+
     border-radius: 20px;
+
     font-size: 12px;
     font-weight: 800;
-    box-shadow: 0 5px 15px rgba(20, 115, 255, 0.20);
+
+    box-shadow:
+        0 5px 15px rgba(18, 174, 232, 0.16);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-/* =====================================================
-   TAGS
-===================================================== */
+.achievement-badges span:hover {
+    background: #12aee8;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(18, 174, 232, 0.25);
+}
+
+
+/* =========================================================
+   OPTIONAL TAGS
+========================================================= */
 
 .tags {
-
     display: flex;
 
     flex-wrap: wrap;
@@ -593,458 +667,213 @@ body {
     margin-top: 16px;
 }
 
-
 .tags span {
-
     display: inline-block;
 
-    padding:
-        6px
-        11px;
+    padding: 6px 11px;
 
-    color: #dbeafe;
+    color: #ccefff;
 
-    background:
-        rgba(20, 115, 255, 0.05);
+    background: rgba(18, 174, 232, 0.06);
 
-    border:
-        1px solid
-        #1b5798;
+    border: 1px solid #24516a;
 
     border-radius: 20px;
 
     font-size: 12px;
-
     font-weight: 600;
 }
 
 
-/* =====================================================
-   HOVER
-===================================================== */
+/* =========================================================
+   CARD HOVER
+========================================================= */
 
 .timeline-card:hover {
+    transform: translateY(-4px);
 
-    transform:
-        translateY(-4px);
-
-    border-color: #1473ff;
+    border-color: #12aee8;
 
     box-shadow:
-
-        0 20px 45px
-        rgba(20, 115, 255, 0.20);
+        0 20px 45px rgba(18, 174, 232, 0.20);
 }
 
 
-/* =====================================================
-   2026
-===================================================== */
+/* =========================================================
+   CURRENT / 2026
+========================================================= */
 
-.timeline-item.current
-.timeline-card {
+.timeline-item.current .timeline-card {
+    border-color: #12aee8;
 
-    border-color: #1473ff;
+    box-shadow:
+        0 0 0 1px rgba(18, 174, 232, 0.35),
+        0 18px 42px rgba(18, 174, 232, 0.14);
+}
+
+.timeline-item.current .timeline-dot {
+    background: #12aee8;
+
+    box-shadow:
+        0 0 0 6px rgba(18, 174, 232, 0.13),
+        0 0 20px rgba(18, 174, 232, 0.35);
 }
 
 
-/* =====================================================
+/* =========================================================
    JOURNEY CONTINUES
-===================================================== */
+========================================================= */
 
 .journey-continues {
-
     position: relative;
 
     text-align: center;
 
     margin-top: 70px;
 
-    padding:
-        50px
-        20px
-        80px;
+    padding: 50px 20px 80px;
 
     z-index: 3;
 }
 
-
 .journey-line {
-
     width: 3px;
-
     height: 55px;
 
-    margin:
-        0
-        auto
-        20px;
+    margin: 0 auto 20px;
 
     background:
         linear-gradient(
             to bottom,
-            #1473ff,
-            #dce5ef
+            #12aee8,
+            #d3dde7
         );
 }
 
-
 .journey-icon {
-
     width: 52px;
-
     height: 52px;
 
-    margin:
-        0
-        auto
-        20px;
+    margin: 0 auto 20px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    background: #07101f;
+    background: #07131f;
 
-    border:
-        4px solid
-        #1473ff;
+    border: 4px solid #12aee8;
 
     border-radius: 50%;
 
-    color: white;
+    color: #ffffff;
 
     font-size: 22px;
 
     box-shadow:
-
-        0 0 0 7px
-        rgba(20, 115, 255, 0.10),
-
-        0 0 25px
-        rgba(20, 115, 255, 0.25);
+        0 0 0 7px rgba(18, 174, 232, 0.10),
+        0 0 25px rgba(18, 174, 232, 0.25);
 }
 
+.journey-continues p {
+    margin: 0 0 7px;
+
+    color: #12aee8;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 4px;
+}
 
 .journey-continues h2 {
+    margin: 0 0 10px;
 
-    margin:
-        0
-        0
-        10px;
-
-    color: #101827;
+    color: #101722;
 
     font-size: 28px;
-
     font-weight: 800;
 }
 
+.journey-continues span {
+    color: #647487;
 
-.journey-continues p {
+    font-size: 13px;
+    font-weight: 700;
 
-    margin: 0;
-
-    color: #64748b;
-
-    font-size: 16px;
-
-    font-style: italic;
+    letter-spacing: 3px;
 }
 
 
-/* =====================================================
+/* =========================================================
    TABLET
-===================================================== */
+========================================================= */
 
 @media (max-width: 1100px) {
 
+    .nav-container {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .navigation {
+        gap: 20px;
+    }
+
     .timeline-section {
-
         padding-left: 20px;
-
         padding-right: 20px;
     }
 
-
     .timeline-card {
-
-        width:
-            calc(50% - 55px);
-
+        width: calc(50% - 55px);
         max-width: 480px;
     }
 
-
-    .timeline-item.left
-    .timeline-card::after {
-
+    .timeline-item.left .timeline-card::after {
         right: -55px;
-
         width: 55px;
     }
 
-
-    .timeline-item.right
-    .timeline-card::after {
-
+    .timeline-item.right .timeline-card::after {
         left: -55px;
-
         width: 55px;
     }
-
 }
 
 
-/* =====================================================
+/* =========================================================
    MOBILE
-===================================================== */
+========================================================= */
 
 @media (max-width: 900px) {
-    .about-site-header { padding:15px 20px; flex-wrap:nowrap; }
-    .menu-toggle { display:flex; margin-left:auto; flex-shrink:0; }
-    .main-nav { display:none; position:absolute; top:100%; left:0; right:0; flex-direction:column; align-items:stretch; gap:0; padding:10px 20px 20px; background:#fff; border-bottom:1px solid #e8eef5; box-shadow:0 15px 30px rgba(7,16,31,.08); }
-    .main-nav.active { display:flex; }
-    .main-nav a { width:100%; padding:15px 10px; font-size:15px; border-bottom:1px solid #edf2f7; }
-    .main-nav a:last-child { border-bottom:none; }
-    .main-nav a.active-page::after { display:none; }
-    .menu-toggle.active span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
-    .menu-toggle.active span:nth-child(2) { opacity:0; }
-    .menu-toggle.active span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
 
-
-
-    .about-header {
-
-        padding:
-            45px
-            20px
-            30px;
+    .site-header {
+        position: relative;
     }
 
-
-    .about-header h1 {
-
-        font-size: 40px;
-    }
-
-
-    .timeline-section {
-
-        padding:
-            20px
-            20px
-            80px;
-    }
-
-
-    .timeline {
-
-        padding-left: 35px;
-    }
-
-
-    /* MOBILE LINE */
-
-    .timeline::before {
-
-        left: 17px;
-
-        transform: none;
-    }
-
-
-    /* MOBILE MOVING MARKER */
-
-    .timeline-marker {
-
-        left: 17px;
-
-        width: 48px;
-
-        height: 48px;
-
-        border-width: 5px;
-
-        transform:
-            translate(-50%, 0);
-    }
-
-
-    .timeline-marker span {
-
-        font-size: 20px;
-    }
-
-
-    /* MOBILE ITEM */
-
-    .timeline-item {
-
-        min-height: auto;
-
-        margin-bottom: 30px;
-    }
-
-
-    /* MOBILE DOT */
-
-    .timeline-dot {
-
-        left: 17px;
-
-        top: 35px;
-    }
-
-
-    /* MOBILE CARD */
-
-    .timeline-card,
-
-    .timeline-item.left
-    .timeline-card,
-
-    .timeline-item.right
-    .timeline-card {
-
-        width: 100%;
-
-        max-width: none;
-
-        margin-left: 35px;
-
-        margin-right: 0;
-
-        padding: 23px;
-    }
-
-
-    /* REMOVE CONNECTORS */
-
-    .timeline-item.left
-    .timeline-card::after,
-
-    .timeline-item.right
-    .timeline-card::after {
-
-        display: none;
-    }
-
-
-
-    .achievement-badges {
-        gap: 7px;
-    }
-
-    .achievement-badges span {
-        padding: 6px 10px;
-        font-size: 11px;
-    }
-
-    .timeline-card h2 {
-
-        font-size: 21px;
-    }
-
-
-
-    .journey-continues {
-
-        padding-bottom: 50px;
-    }
-
-
-    .journey-continues h2 {
-
-        font-size: 23px;
-    }
-
-}
-
-@media (max-width: 500px) { .about-site-header{padding:13px 15px;} .brand-mark{width:38px;height:38px;font-size:18px;} .brand-first,.brand-last{font-size:11px;} .about-header h1{font-size:34px;} .eyebrow{font-size:11px;letter-spacing:4px;} .timeline-section{padding-left:12px;padding-right:12px;} .timeline{padding-left:30px;} .timeline-card,.timeline-item.left .timeline-card,.timeline-item.right .timeline-card{margin-left:30px;padding:19px;} .timeline-card h2{font-size:19px;} .timeline-year{font-size:14px;letter-spacing:3px;} .tags span{font-size:11px;} }
-
-@media (prefers-reduced-motion: reduce) { html{scroll-behavior:auto;} .timeline-marker,.timeline-card,.menu-toggle span,.main-nav a{transition:none;} }
-
-
-/* =====================================================
-   FINAL HEADER FIX
-   Keep navigation on the RIGHT
-===================================================== */
-
-/* If the header is still using class="about-header",
-   style ONLY the HEADER — not the About Me section */
-
-header.about-header {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    flex-wrap: nowrap;
-
-    padding: 22px 45px;
-
-    background: #ffffff;
-
-    border-bottom: 1px solid #e8eef5;
-
-    position: relative;
-    z-index: 100;
-}
-
-
-/* Brand stays on the LEFT */
-
-header.about-header .brand {
-    display: flex;
-    align-items: center;
-
-    gap: 12px;
-
-    flex-shrink: 0;
-
-    text-decoration: none;
-}
-
-
-/* Navigation goes to the RIGHT */
-
-header.about-header .main-nav {
-    display: flex;
-    align-items: center;
-
-    gap: 30px;
-
-    margin-left: auto;
-
-    flex-shrink: 0;
-}
-
-
-/* =====================================================
-   MOBILE HEADER
-===================================================== */
-
-@media (max-width: 900px) {
-
-    header.about-header {
-        padding: 15px 20px;
+    .nav-container {
+        height: auto;
+        min-height: 58px;
+
+        padding: 8px 20px;
 
         flex-wrap: nowrap;
     }
 
-    header.about-header .menu-toggle {
+    .logo {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+
+    .menu-toggle {
         display: flex;
 
         margin-left: auto;
-
         flex-shrink: 0;
     }
 
-    header.about-header .main-nav {
+    .navigation {
         display: none;
 
         position: absolute;
@@ -1058,34 +887,242 @@ header.about-header .main-nav {
 
         gap: 0;
 
-        margin-left: 0;
+        padding: 8px 20px 16px;
 
-        padding: 10px 20px 20px;
+        background: #07131f;
 
-        background: #ffffff;
-
-        border-bottom: 1px solid #e8eef5;
+        border-bottom: 1px solid #1d3042;
 
         box-shadow:
-            0 15px 30px rgba(7, 16, 31, 0.08);
+            0 15px 30px rgba(4, 15, 30, 0.22);
     }
 
-    header.about-header .main-nav.active {
+    .navigation.active {
         display: flex;
     }
 
-    header.about-header .main-nav a {
+    .navigation a {
         width: 100%;
 
-        padding: 15px 10px;
+        padding: 14px 10px;
+
+        color: #9aabba;
 
         font-size: 15px;
 
-        border-bottom: 1px solid #edf2f7;
+        border-bottom: 1px solid #1d3042;
     }
 
-    header.about-header .main-nav a:last-child {
+    .navigation a:last-child {
         border-bottom: none;
     }
 
+    .navigation a.active::after {
+        display: none;
+    }
+
+
+    /* PAGE INTRO */
+
+    .page-intro {
+        padding: 45px 20px 30px;
+    }
+
+    .page-intro h1 {
+        font-size: 40px;
+    }
+
+    .intro-text {
+        font-size: 16px;
+    }
+
+
+    /* TIMELINE */
+
+    .timeline-section {
+        padding: 20px 20px 80px;
+    }
+
+    .timeline {
+        padding-left: 35px;
+    }
+
+    .timeline::before {
+        left: 17px;
+        transform: none;
+    }
+
+    .timeline-marker {
+        left: 17px;
+
+        width: 48px;
+        height: 48px;
+
+        border-width: 5px;
+
+        transform: translate(-50%, 0);
+    }
+
+    .timeline-marker span {
+        font-size: 20px;
+    }
+
+    .timeline-item {
+        min-height: auto;
+        margin-bottom: 30px;
+    }
+
+    .timeline-dot {
+        left: 17px;
+        top: 35px;
+    }
+
+    .timeline-card,
+    .timeline-item.left .timeline-card,
+    .timeline-item.right .timeline-card {
+        width: 100%;
+        max-width: none;
+
+        margin-left: 35px;
+        margin-right: 0;
+
+        padding: 23px;
+    }
+
+    .timeline-item.left .timeline-card::after,
+    .timeline-item.right .timeline-card::after {
+        display: none;
+    }
+
+    .timeline-card h2 {
+        font-size: 21px;
+    }
+
+    .timeline-card p {
+        font-size: 14px;
+    }
+
+    .achievement-badges {
+        gap: 7px;
+    }
+
+    .achievement-badges span {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+
+    /* JOURNEY */
+
+    .journey-continues {
+        margin-top: 40px;
+        padding-bottom: 50px;
+    }
+
+    .journey-continues h2 {
+        font-size: 23px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .nav-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .logo {
+        font-size: 15px;
+        letter-spacing: 1.5px;
+    }
+
+    .menu-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .page-intro {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .page-intro h1 {
+        font-size: 34px;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+        letter-spacing: 4px;
+    }
+
+    .intro-text {
+        font-size: 15px;
+    }
+
+    .timeline-section {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .timeline {
+        padding-left: 30px;
+    }
+
+    .timeline-card,
+    .timeline-item.left .timeline-card,
+    .timeline-item.right .timeline-card {
+        margin-left: 30px;
+        padding: 19px;
+    }
+
+    .timeline-card h2 {
+        font-size: 19px;
+    }
+
+    .timeline-card h3 {
+        font-size: 14px;
+    }
+
+    .timeline-year {
+        font-size: 14px;
+        letter-spacing: 3px;
+    }
+
+    .timeline-card p {
+        font-size: 13px;
+    }
+
+    .tags span {
+        font-size: 11px;
+    }
+
+    .journey-continues h2 {
+        font-size: 21px;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY / REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .timeline-marker,
+    .timeline-card,
+    .menu-toggle span,
+    .navigation a,
+    .achievement-badges span,
+    .logo {
+        transition: none;
+    }
 }

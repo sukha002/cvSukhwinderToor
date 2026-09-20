@@ -1,6 +1,9 @@
-/* =========================================
-   RESET
-========================================= */
+/* =========================================================
+   RESEARCH PROJECTS PAGE
+========================================================= */
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 * {
     margin: 0;
@@ -13,174 +16,139 @@ html {
 }
 
 body {
+    margin: 0;
+    padding: 0;
+
     font-family: Arial, Helvetica, sans-serif;
-    background: #ffffff;
-    color: #111827;
-    line-height: 1.6;
+
+    background: #f4f7fa;
+    color: #101722;
+
+    line-height: 1.5;
+
+    overflow-x: hidden;
 }
 
 a {
+    text-decoration: none;
     color: inherit;
 }
 
-button {
-    font-family: inherit;
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
 
-/* =========================================
+/* =========================================================
    HEADER
-========================================= */
+   ========================================================= */
 
 .site-header {
-    position: relative;
     width: 100%;
-    background: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
-    z-index: 1000;
+
+    background: #07131f;
+
+    border-bottom: 1px solid #1d3042;
 }
 
-.header-inner {
-    width: min(1200px, calc(100% - 60px));
-    min-height: 100px;
-    margin: 0 auto;
+.nav-container {
+    height: 47px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 }
 
 
-/* =========================================
-   BRAND
-========================================= */
+/* LOGO */
 
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 18px;
+.logo {
+    color: #ffffff;
 
-    text-decoration: none;
-}
-
-.brand-mark {
-    width: 72px;
-    height: 72px;
-
-    border: 3px solid #2589e8;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 32px;
-    font-weight: 700;
-
-    color: #2589e8;
-}
-
-.brand-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.brand-first {
     font-size: 21px;
+
     font-weight: 700;
-    letter-spacing: 4px;
-    color: #111827;
+
+    letter-spacing: 3px;
+
+    white-space: nowrap;
 }
 
-.brand-last {
-    margin-top: 2px;
-
-    font-size: 13px;
-    letter-spacing: 7px;
-    color: #6b7280;
+.logo span {
+    color: #12aee8;
 }
 
 
-/* =========================================
-   DESKTOP NAVIGATION
-========================================= */
+/* NAVIGATION */
 
-.main-nav {
+.navigation {
     display: flex;
+
     align-items: center;
-    gap: 32px;
+
+    gap: 27px;
 }
 
-.main-nav a {
-    position: relative;
+.navigation a {
+    color: #8fa0b0;
 
-    text-decoration: none;
-
-    font-size: 14px;
-    font-weight: 600;
-
-    color: #374151;
-
-    padding: 8px 0;
+    font-size: 15px;
 
     transition:
-        color 0.25s ease;
+        color 0.2s ease;
 }
 
-.main-nav a:hover {
-    color: #2589e8;
+.navigation a:hover {
+    color: #ffffff;
 }
 
-.main-nav a::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 0;
-    height: 2px;
-
-    background: #2589e8;
-
-    transition: width 0.25s ease;
-}
-
-.main-nav a:hover::after {
-    width: 100%;
+.navigation a.active {
+    color: #12aee8;
 }
 
 
-/* =========================================
+/* =========================================================
    MOBILE MENU BUTTON
-========================================= */
+========================================================= */
 
 .menu-toggle {
     display: none;
 
-    width: 46px;
-    height: 46px;
-
-    border: none;
-    background: transparent;
-
-    cursor: pointer;
+    width: 44px;
+    height: 44px;
 
     padding: 8px;
 
-    position: relative;
-    z-index: 1100;
+    border: 1px solid #294057;
+
+    border-radius: 10px;
+
+    background: #07131f;
+
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    z-index: 200;
 }
 
 .menu-toggle span {
     display: block;
 
-    width: 30px;
-    height: 3px;
+    width: 23px;
+    height: 2px;
 
-    margin: 5px auto;
+    background: #ffffff;
 
-    background: #111827;
+    border-radius: 2px;
 
     transition:
         transform 0.25s ease,
@@ -188,618 +156,753 @@ button {
 }
 
 
-/* =========================================
+/* =========================================================
+   the above code is global in all the pages
+========================================================= */
+
+/* =========================================================
+   the above code is global in all the pages
+========================================================= */
+
+
+/* =========================================================
    HERO
-========================================= */
+========================================================= */
 
 .hero {
-    width: min(1200px, calc(100% - 60px));
+    width: min(1200px, calc(100% - 104px));
+
     margin: 0 auto;
 
-    padding: 110px 0 100px;
+    /*
+       Deliberately compact.
+       There is NO large bottom padding.
+    */
+
+    padding-top: 73px;
+
+    padding-bottom: 0;
 }
 
 .hero-content {
-    max-width: 900px;
+    width: 100%;
+
+    max-width: 850px;
 }
+
+
+/* EYEBROW */
 
 .eyebrow {
-    margin-bottom: 35px;
+    margin: 0 0 18px;
 
-    color: #2589e8;
+    color: #08a9e4;
 
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 9px;
 
-    letter-spacing: 5px;
-}
-
-.hero h1 {
-    max-width: 950px;
-
-    font-size: clamp(48px, 7vw, 92px);
-
-    line-height: 0.98;
-
-    letter-spacing: -4px;
-
-    font-weight: 800;
-
-    color: #111827;
-}
-
-.hero h1 span {
-    color: #2589e8;
-}
-
-.hero-description {
-    max-width: 760px;
-
-    margin-top: 45px;
-
-    font-size: 21px;
-    line-height: 1.7;
-
-    color: #6b7280;
-}
-
-
-/* =========================================
-   HERO BUTTONS
-========================================= */
-
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 18px;
-
-    margin-top: 40px;
-}
-
-.btn {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    min-width: 190px;
-
-    padding: 18px 28px;
-
-    text-decoration: none;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-}
-
-.btn-primary {
-    background: #0b1324;
-    color: #ffffff;
-}
-
-.btn-primary:hover {
-    background: #2589e8;
-}
-
-.btn-secondary {
-    background: #ffffff;
-    color: #111827;
-
-    border: 1px solid #d1d5db;
-}
-
-.btn-secondary:hover {
-    border-color: #2589e8;
-    color: #2589e8;
-}
-
-
-/* =========================================
-   SKILL TAGS
-========================================= */
-
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 12px;
-
-    margin-top: 55px;
-}
-
-.skill-tags span {
-    padding: 10px 20px;
-
-    border: 1px solid #e5e7eb;
-
-    color: #6b7280;
-
-    font-size: 14px;
-}
-
-
-/* =========================================
-   SECTIONS
-========================================= */
-
-.what-i-bring,
-.featured-projects,
-.connect {
-    width: min(1200px, calc(100% - 60px));
-    margin: 0 auto;
-
-    padding: 100px 0;
-}
-
-.section-label {
-    color: #2589e8;
-
-    font-size: 13px;
     font-weight: 700;
 
     letter-spacing: 4px;
 }
 
-.what-i-bring h2,
-.featured-projects h2,
-.connect h2 {
-    margin-top: 18px;
+.eyebrow span {
+    color: #8293a4;
 
-    font-size: clamp(38px, 5vw, 62px);
-
-    line-height: 1.05;
-
-    letter-spacing: -2px;
+    margin: 0 4px;
 }
 
 
-/* =========================================
-   CAPABILITIES
-========================================= */
+/* HERO TITLE */
 
-.capabilities {
-    display: grid;
+.hero h1 {
+    margin: 0;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    color: #101722;
 
-    gap: 25px;
+    font-size: clamp(58px, 7vw, 82px);
 
-    margin-top: 60px;
+    font-weight: 700;
+
+    line-height: 0.87;
+
+    letter-spacing: -5px;
 }
 
-.capability {
-    padding: 35px;
-
-    border-top: 2px solid #111827;
-
-    background: #f8fafc;
+.hero h1 span {
+    color: #12aee8;
 }
 
-.capability .number {
-    color: #2589e8;
+
+/* DESCRIPTION */
+
+.hero-description {
+    max-width: 640px;
+
+    margin-top: 27px;
+
+    color: #617286;
 
     font-size: 13px;
-    font-weight: 700;
-}
 
-.capability h3 {
-    margin-top: 25px;
-
-    font-size: 25px;
-}
-
-.capability p {
-    margin-top: 15px;
-
-    color: #6b7280;
-
-    line-height: 1.7;
+    line-height: 1.65;
 }
 
 
-/* =========================================
-   PROJECTS
-========================================= */
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
 
-.featured-projects {
-    border-top: 1px solid #e5e7eb;
-}
-
-.section-heading-row {
+.hero-buttons {
     display: flex;
 
-    align-items: flex-end;
-    justify-content: space-between;
+    align-items: center;
 
-    gap: 30px;
+    gap: 9px;
+
+    margin-top: 23px;
 }
 
-.section-heading-row a {
-    color: #2589e8;
+.hero-buttons a {
+    display: inline-flex;
 
-    text-decoration: none;
+    align-items: center;
+
+    justify-content: center;
+
+    height: 35px;
+
+    padding: 0 16px;
+
+    background: #ffffff;
+
+    border: 1px solid #cbd7e1;
+
+    color: #172434;
+
+    font-size: 8px;
 
     font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
 }
 
-.project-grid {
-    display: grid;
+.hero-buttons a:hover {
+    border-color: #12aee8;
 
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 25px;
-
-    margin-top: 60px;
+    color: #078ab9;
 }
 
-.project-card {
-    min-height: 330px;
+.hero-buttons .primary {
+    background: #07131f;
 
-    padding: 35px;
-
-    border: 1px solid #e5e7eb;
-
-    display: flex;
-    flex-direction: column;
-}
-
-.project-card > span {
-    color: #2589e8;
-
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.project-card h3 {
-    margin-top: 35px;
-
-    font-size: 27px;
-
-    line-height: 1.15;
-}
-
-.project-card p {
-    margin-top: 18px;
-
-    color: #6b7280;
-}
-
-.project-card a {
-    margin-top: auto;
-
-    padding-top: 30px;
-
-    color: #2589e8;
-
-    text-decoration: none;
-
-    font-weight: 700;
-}
-
-
-/* =========================================
-   CONNECT
-========================================= */
-
-.connect {
-    background: #0b1324;
-
-    max-width: none;
-
-    width: 100%;
-
-    padding-left: max(30px, calc((100% - 1200px) / 2));
-    padding-right: max(30px, calc((100% - 1200px) / 2));
+    border-color: #07131f;
 
     color: #ffffff;
 }
 
-.connect .section-label {
-    color: #2589e8;
+.hero-buttons .primary:hover {
+    background: #12aee8;
+
+    border-color: #12aee8;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   SKILL TAGS
+========================================================= */
+
+.skill-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-top: 27px;
+
+    margin-bottom: 0;
+
+    padding: 0;
+}
+
+.skill-tags span {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 25px;
+
+    padding: 0 12px;
+
+    background: #ffffff;
+
+    border: 2px solid #d2dde6;
+
+    color: #147da4;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   WHAT I BRING
+
+   IMPORTANT:
+   This section begins directly after the hero.
+   No giant white spacer.
+========================================================= */
+
+.what-i-bring {
+    width: min(1200px, calc(100% - 104px));
+
+    margin: 0 auto;
+
+    padding-top: 17px;
+
+    padding-bottom: 20px;
+}
+
+
+/* HEADING */
+
+.what-i-bring .eyebrow {
+    margin-bottom: 14px;
+}
+
+.what-i-bring h2 {
+    margin: 0;
+
+    color: #101722;
+
+    font-size: clamp(42px, 5vw, 7px);
+
+    font-weight: 700;
+
+    line-height: 0.98;
+
+    letter-spacing: -3px;
+}
+
+
+/* DESCRIPTION */
+
+.what-i-bring > p {
+    max-width: 610px;
+
+    margin-top: 17px;
+
+    color: #617286;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FEATURE CARDS
+========================================================= */
+
+.features-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 11px;
+
+    margin-top: 32px;
+}
+
+.feature-card {
+    min-height: 143px;
+
+    padding: 27px 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #d2dde6;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #12aee8;
+}
+
+.feature-card > span {
+    color: #08a9e4;
+
+    font-size: 8px;
+
+    font-weight: 700;
+}
+
+.feature-card h3 {
+    margin-top: 18px;
+
+    color: #101722;
+
+    font-size: 15px;
+
+    line-height: 1.2;
+}
+
+.feature-card p {
+    margin-top: 10px;
+
+    color: #617286;
+
+    font-size: 9px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FEATURED PROJECTS
+========================================================= */
+
+.featured-projects {
+    width: min(1200px, calc(100% - 104px));
+
+    margin: 0 auto;
+
+    padding-top: 70px;
+
+    padding-bottom: 75px;
+
+    border-top: 1px solid #d2dde6;
+}
+
+.featured-projects .eyebrow {
+    margin-bottom: 14px;
+}
+
+.featured-projects h2 {
+    margin: 0;
+
+    color: #101722;
+
+    font-size: clamp(32px, 5vw, 47px);
+
+    line-height: 0.98;
+
+    letter-spacing: -3px;
+}
+
+
+/* PROJECT GRID */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 11px;
+
+    margin-top: 32px;
+}
+
+.project-card {
+    padding: 27px 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #d2dde6;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #12aee8;
+}
+
+.project-card .number {
+    color: #08a9e4;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.project-card h3 {
+    margin-top: 18px;
+
+    color: #101722;
+
+    font-size: 20px;
+
+    line-height: 1;
+}
+
+.project-card h3 span {
+    color: #12aee8;
+}
+
+.project-card p {
+    margin-top: 13px;
+
+    color: #617286;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+}
+
+.project-card .link {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: #078bb9;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+.project-card .link:hover {
+    color: #12aee8;
+}
+
+
+/* =========================================================
+   CONNECT
+========================================================= */
+
+.connect {
+    width: min(1200px, calc(100% - 104px));
+
+    margin: 0 auto;
+
+    padding-top: 70px;
+
+    padding-bottom: 80px;
+
+    border-top: 1px solid #d2dde6;
+}
+
+.connect .eyebrow {
+    margin-bottom: 14px;
 }
 
 .connect h2 {
-    max-width: 800px;
+    margin: 0;
+
+    color: #101722;
+
+    font-size: clamp(42px, 5vw, 57px);
+
+    line-height: 0.98;
+
+    letter-spacing: -3px;
 }
 
-.connect p {
-    max-width: 650px;
+.connect p:not(.eyebrow) {
+    max-width: 600px;
 
-    margin-top: 25px;
+    margin-top: 17px;
 
-    color: #b7c0cf;
+    color: #617286;
 
-    font-size: 18px;
+    font-size: 12px;
 }
 
 .connect-buttons {
     display: flex;
-    flex-wrap: wrap;
 
-    gap: 15px;
+    gap: 9px;
 
-    margin-top: 35px;
+    margin-top: 23px;
 }
 
 .connect-buttons a {
-    padding: 14px 24px;
+    display: inline-flex;
 
-    border: 1px solid #374151;
+    align-items: center;
 
-    text-decoration: none;
+    justify-content: center;
 
-    font-weight: 600;
+    height: 35px;
 
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease;
+    padding: 0 17px;
+
+    background: #07131f;
+
+    color: #ffffff;
+
+    font-size: 8px;
+
+    font-weight: 700;
 }
 
 .connect-buttons a:hover {
-    background: #2589e8;
-    border-color: #2589e8;
+    background: #12aee8;
 }
 
 
-/* =========================================
+/* =========================================================
    FOOTER
-========================================= */
+========================================================= */
 
 .site-footer {
-    width: 100%;
+    background: #07131f;
 
-    padding: 30px max(30px, calc((100% - 1200px) / 2));
+    color: #75889a;
 
-    background: #0b1324;
+    font-size: 8px;
+}
 
-    border-top: 1px solid #263044;
-
-    color: #6b7280;
+.footer-container {
+    min-height: 58px;
 
     display: flex;
 
+    align-items: center;
+
     justify-content: space-between;
-
-    gap: 20px;
-
-    font-size: 13px;
 }
 
 
-/* =========================================
-   MOBILE
-========================================= */
+/* =========================================================
+   IMPORTANT GAP PROTECTION
+========================================================= */
+
+/*
+   These rules make sure no accidental margin/padding
+   creates the large white gap you had before.
+*/
+
+.hero {
+    margin-bottom: 0 !important;
+}
+
+.hero-content {
+    margin-bottom: 0 !important;
+}
+
+.skill-tags {
+    margin-bottom: 0 !important;
+}
+
+.hero + .what-i-bring {
+    margin-top: 0 !important;
+}
+
+.what-i-bring {
+    margin-top: 0 !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 900px) {
 
-    .main-nav {
-        gap: 18px;
+    .container,
+    .hero,
+    .what-i-bring,
+    .featured-projects,
+    .connect {
+        width: calc(100% - 60px);
     }
 
-    .main-nav a {
-        font-size: 13px;
+    .hero h1 {
+        font-size: 65px;
     }
 
-    .capabilities,
-    .project-grid {
-        grid-template-columns: 1fr;
+    .features-grid,
+    .projects-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 }
 
 
-@media (max-width: 768px) {
+/* =========================================================
+   MOBILE
+========================================================= */
 
-    .header-inner {
+@media (max-width: 650px) {
+
+    .container,
+    .hero,
+    .what-i-bring,
+    .featured-projects,
+    .connect {
         width: calc(100% - 40px);
-        min-height: 100px;
-    }
-
-    .brand-mark {
-        width: 58px;
-        height: 58px;
-
-        font-size: 26px;
-    }
-
-    .brand-first {
-        font-size: 16px;
-        letter-spacing: 3px;
-    }
-
-    .brand-last {
-        font-size: 10px;
-        letter-spacing: 5px;
     }
 
 
-    /* Show hamburger */
+    /* HEADER */
 
-    .menu-toggle {
-        display: block;
+    .nav-container {
+        min-height: 60px;
     }
 
-
-    /* Hide navigation by default */
-
-    .main-nav {
+    .navigation {
         display: none;
-
-        position: absolute;
-
-        top: 100%;
-        left: 0;
-        right: 0;
-
-        width: 100%;
-
-        padding: 25px 30px;
-
-        background: #ffffff;
-
-        border-top: 1px solid #e5e7eb;
-        border-bottom: 1px solid #e5e7eb;
-
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
-
-        z-index: 1000;
     }
 
 
-    /* Show navigation when JS adds active */
+    /* HERO */
 
-    .main-nav.active {
-        display: flex;
+    .hero {
+        padding-top: 60px;
+        padding-bottom: 0 !important;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+
+        letter-spacing: -4px;
+
+        line-height: 0.9;
+    }
+
+    .hero-description {
+        font-size: 12px;
+    }
+
+
+    /* BUTTONS */
+
+    .hero-buttons {
+        flex-wrap: wrap;
+    }
+
+
+    /* SKILLS */
+
+    .skill-tags {
+        margin-top: 23px;
+    }
+
+
+    /* WHAT I BRING */
+
+    .what-i-bring {
+        padding-top: 25px;
+
+        padding-bottom: 55px;
+    }
+
+    .what-i-bring h2 {
+        font-size: 42px;
+
+        letter-spacing: -3px;
+    }
+
+
+    /* CARDS */
+
+    .features-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+
+    /* PROJECTS */
+
+    .featured-projects {
+        padding-top: 55px;
+
+        padding-bottom: 60px;
+    }
+
+
+    /* CONNECT */
+
+    .connect {
+        padding-top: 55px;
+
+        padding-bottom: 60px;
+    }
+
+
+    /* FOOTER */
+
+    .footer-container {
+        min-height: 75px;
 
         flex-direction: column;
 
         align-items: flex-start;
 
-        gap: 0;
+        justify-content: center;
+
+        gap: 5px;
     }
-
-    .main-nav.active a {
-        width: 100%;
-
-        padding: 15px 0;
-
-        font-size: 16px;
-
-        border-bottom: 1px solid #f0f0f0;
-    }
+}
 
 
-    /* Hamburger becomes X */
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
 
-    .menu-toggle.active span:nth-child(1) {
-        transform:
-            translateY(8px)
-            rotate(45deg);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-        transform:
-            translateY(-8px)
-            rotate(-45deg);
-    }
-
-
-    .hero {
-        width: calc(100% - 40px);
-
-        padding: 80px 0 70px;
-    }
-
-    .eyebrow {
-        font-size: 13px;
-
-        letter-spacing: 3px;
-
-        margin-bottom: 25px;
-    }
+@media (max-width: 420px) {
 
     .hero h1 {
-        font-size: clamp(43px, 13vw, 68px);
+        font-size: 45px;
+
+        letter-spacing: -3px;
+    }
+
+    .what-i-bring h2,
+    .featured-projects h2,
+    .connect h2 {
+        font-size: 38px;
 
         letter-spacing: -2.5px;
     }
 
-    .hero-description {
-        margin-top: 30px;
-
-        font-size: 18px;
-    }
-
     .hero-buttons {
         flex-direction: column;
+
+        align-items: stretch;
     }
 
-    .btn {
+    .hero-buttons a {
         width: 100%;
+
+        text-align: center;
     }
 
-    .skill-tags {
-        margin-top: 40px;
-    }
-
-    .what-i-bring,
-    .featured-projects {
-        width: calc(100% - 40px);
-
-        padding: 75px 0;
-    }
-
-    .section-heading-row {
-        align-items: flex-start;
-
+    .connect-buttons {
         flex-direction: column;
+
+        align-items: stretch;
     }
 
-    .connect {
-        padding-top: 75px;
-        padding-bottom: 75px;
-    }
+    .connect-buttons a {
+        width: 100%;
 
-    .site-footer {
-        flex-direction: column;
-    }
-}
-
-
-/* =========================================
-   VERY SMALL PHONES
-========================================= */
-
-@media (max-width: 420px) {
-
-    .header-inner {
-        width: calc(100% - 30px);
-    }
-
-    .brand {
-        gap: 10px;
-    }
-
-    .brand-mark {
-        width: 50px;
-        height: 50px;
-
-        border-width: 2px;
-
-        font-size: 23px;
-    }
-
-    .brand-first {
-        font-size: 14px;
-        letter-spacing: 2px;
-    }
-
-    .brand-last {
-        font-size: 9px;
-        letter-spacing: 4px;
-    }
-
-    .hero {
-        width: calc(100% - 30px);
-    }
-
-    .hero h1 {
-        font-size: 43px;
+        text-align: center;
     }
 }

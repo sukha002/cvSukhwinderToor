@@ -1,6 +1,9 @@
 /* =========================================================
    RESEARCH PROJECTS PAGE
 ========================================================= */
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 * {
     margin: 0;
@@ -13,10 +16,17 @@ html {
 }
 
 body {
+    margin: 0;
+    padding: 0;
+
     font-family: Arial, Helvetica, sans-serif;
-    background: #f5f7fa;
+
+    background: #f4f7fa;
     color: #101722;
-    line-height: 1.6;
+
+    line-height: 1.5;
+
+    overflow-x: hidden;
 }
 
 a {
@@ -24,69 +34,131 @@ a {
     color: inherit;
 }
 
-.container {
-    width: min(1200px, 92%);
-    margin: 0 auto;
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
 
 /* =========================================================
    HEADER
-========================================================= */
+   ========================================================= */
 
 .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    width: 100%;
 
-    background: rgba(4, 13, 24, 0.97);
+    background: #07131f;
 
-    border-bottom: 1px solid #20394f;
-
-    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #1d3042;
 }
 
 .nav-container {
-    min-height: 74px;
+    height: 47px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 }
+
+
+/* LOGO */
 
 .logo {
     color: #ffffff;
 
-    font-size: 15px;
+    font-size: 21px;
+
     font-weight: 700;
 
     letter-spacing: 3px;
+
+    white-space: nowrap;
 }
 
 .logo span {
-    color: #13b4ed;
+    color: #12aee8;
 }
+
+
+/* NAVIGATION */
 
 .navigation {
     display: flex;
-    gap: 30px;
 
-    color: #91a5b8;
+    align-items: center;
 
-    font-size: 12px;
+    gap: 27px;
 }
 
 .navigation a {
-    transition: color 0.25s ease;
+    color: #8fa0b0;
+
+    font-size: 15px;
+
+    transition:
+        color 0.2s ease;
 }
 
 .navigation a:hover {
-    color: #13b4ed;
+    color: #ffffff;
 }
 
 .navigation a.active {
-    color: #13b4ed;
+    color: #12aee8;
 }
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.menu-toggle {
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 8px;
+
+    border: 1px solid #294057;
+
+    border-radius: 10px;
+
+    background: #07131f;
+
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    z-index: 200;
+}
+
+.menu-toggle span {
+    display: block;
+
+    width: 23px;
+    height: 2px;
+
+    background: #ffffff;
+
+    border-radius: 2px;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+
+/* =========================================================
+   the above code is global in all the pages
+========================================================= */
 
 
 /* =========================================================
