@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Food Quality Detection | Sukhwinder Singh</title>
+
+    <style>
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f4f7fa;
+            color: #101722;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(7, 17, 31, 0.96);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid #1d354c;
+        }
+
+        .nav {
+            min-height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: white;
+        }
+
+        .logo span {
+            color: #16b9f2;
+        }
+
+        .back {
+            color: #aab8c5;
+            font-size: 13px;
+            transition: .3s;
+        }
+
+        .back:hover {
+            color: #16b9f2;
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 650px;
+
+            display: grid;
+            grid-template-columns: 1.25fr .75fr;
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .eyebrow {
+            color: #08aeea;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 7vw, 92px);
+            line-height: .92;
+            letter-spacing: -4px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 span {
+            color: #08aeea;
+        }
+
+        .hero-description {
+            max-width: 720px;
+            color: #687787;
+            font-size: 18px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 30px;
+        }
+
+        .tag {
+            border: 1px solid #d7e0e7;
+            background: white;
+            padding: 8px 13px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .hero-panel {
+            min-height: 400px;
+
+            padding: 35px;
+
+            background: #07111f;
+            border: 1px solid #21415b;
+
+            color: white;
+
+            position: relative;
+
+            box-shadow:
+                18px 18px 0 rgba(8, 174, 234, .12);
+        }
+
+        .hero-panel::before {
+            content: "";
+            position: absolute;
+
+            width: 90px;
+            height: 90px;
+
+            border: 1px solid rgba(8,174,234,.4);
+
+            right: 30px;
+            top: 30px;
+        }
+
+        .hero-number {
+            font-size: 80px;
+            font-weight: bold;
+            color: #08aeea;
+        }
+
+        .hero-panel hr {
+            border: none;
+            height: 1px;
+            background: #294257;
+            margin: 50px 0;
+        }
+
+        .hero-panel small {
+            color: #8194a6;
+            letter-spacing: 3px;
+        }
+
+        .hero-panel h3 {
+            margin-top: 20px;
+            font-size: 30px;
+            line-height: 1.1;
+        }
+
+        /* =====================================================
+           SECTIONS
+        ===================================================== */
+
+        section {
+            padding: 100px 0;
+            border-top: 1px solid #dce3e9;
+        }
+
+        .section-number {
+            color: #08aeea;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: clamp(36px, 5vw, 60px);
+            line-height: 1;
+            letter-spacing: -3px;
+            margin-bottom: 35px;
+        }
+
+        h3 {
+            margin-bottom: 12px;
+        }
+
+        .muted {
+            color: #687787;
+        }
+
+        /* =====================================================
+           PROBLEM
+        ===================================================== */
+
+        .two-column {
+            display: grid;
+            grid-template-columns: .7fr 1.3fr;
+            gap: 90px;
+        }
+
+        .two-column p {
+            color: #687787;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        /* =====================================================
+           OBJECTIVES
+        ===================================================== */
+
+        .dark {
+            background: #07111f;
+            color: white;
+        }
+
+        .objective-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1px;
+
+            background: #294257;
+        }
+
+        .objective {
+            background: #07111f;
+            padding: 28px;
+            min-height: 230px;
+        }
+
+        .objective-number {
+            color: #08aeea;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .objective h3 {
+            margin-top: 45px;
+            font-size: 18px;
+        }
+
+        .objective p {
+            color: #91a4b6;
+            font-size: 13px;
+        }
+
+        /* =====================================================
+           DATASETS
+        ===================================================== */
+
+        .dataset-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .dataset {
+            background: white;
+            border: 1px solid #dce3e9;
+            padding: 35px;
+
+            transition: .3s;
+        }
+
+        .dataset:hover {
+            transform: translateY(-6px);
+            border-color: #08aeea;
+        }
+
+        .dataset-label {
+            display: inline-block;
+
+            background: #e0f7ff;
+            color: #0785b5;
+
+            padding: 7px 10px;
+
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 2px;
+
+            margin-bottom: 20px;
+        }
+
+        .dataset h3 {
+            font-size: 25px;
+        }
+
+        .dataset p {
+            color: #687787;
+        }
+
+        /* =====================================================
+           PIPELINE
+        ===================================================== */
+
+        .pipeline {
+            display: flex;
+            align-items: stretch;
+            gap: 10px;
+
+            overflow-x: auto;
+            padding-bottom: 15px;
+        }
+
+        .step {
+            min-width: 180px;
+
+            background: white;
+            border: 1px solid #dce3e9;
+
+            padding: 25px;
+        }
+
+        .step span {
+            color: #08aeea;
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        .step strong {
+            display: block;
+            margin-top: 25px;
+        }
+
+        .step small {
+            display: block;
+            margin-top: 8px;
+            color: #687787;
+        }
+
+        .arrow {
+            display: flex;
+            align-items: center;
+            color: #08aeea;
+            font-size: 25px;
+        }
+
+        /* =====================================================
+           EXPERIMENT
+        ===================================================== */
+
+        .experiment {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .experiment p {
+            color: #687787;
+            margin-bottom: 18px;
+        }
+
+        .flow {
+            background: #07111f;
+            padding: 30px;
+            border: 1px solid #294257;
+        }
+
+        .flow-box {
+            padding: 16px;
+            text-align: center;
+
+            border: 1px solid #294257;
+
+            color: white;
+
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            color: #08aeea;
+            font-size: 22px;
+            padding: 5px;
+        }
+
+        .flow-result {
+            padding: 17px;
+
+            background: #08aeea;
+            color: #00131d;
+
+            text-align: center;
+
+            font-weight: bold;
+        }
+
+        /* =====================================================
+           MILK EXPERIMENT
+        ===================================================== */
+
+        .milk-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .big-number {
+            font-size: 90px;
+            line-height: .9;
+            color: #08aeea;
+            font-weight: bold;
+        }
+
+        .sample-box {
+            margin-top: 30px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .sample {
+            border-top: 1px solid #294257;
+            padding-top: 18px;
+        }
+
+        .sample strong {
+            display: block;
+            font-size: 30px;
+        }
+
+        .sample span {
+            color: #91a4b6;
+            font-size: 12px;
+        }
+
+        /* =====================================================
+           TABLE
+        ===================================================== */
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin-top: 50px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+        }
+
+        th,
+        td {
+            padding: 17px;
+            border-bottom: 1px solid #294257;
+            text-align: left;
+        }
+
+        th {
+            color: #91a4b6;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        td:last-child {
+            color: #08aeea;
+            font-weight: bold;
+        }
+
+        .note {
+            margin-top: 15px;
+            color: #7f93a5;
+            font-size: 11px;
+        }
+
+        /* =====================================================
+           FEATURES
+        ===================================================== */
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .feature-box {
+            background: white;
+            border: 1px solid #dce3e9;
+            padding: 30px;
+        }
+
+        .feature-box ul {
+            list-style: none;
+            margin-top: 20px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 8px;
+        }
+
+        .feature-box li {
+            background: #f4f7fa;
+            padding: 10px;
+            color: #687787;
+            font-size: 13px;
+        }
+
+        /* =====================================================
+           TECHNOLOGIES
+        ===================================================== */
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech {
+            background: #07111f;
+            color: white;
+            padding: 13px 17px;
+
+            border: 1px solid #294257;
+
+            font-size: 12px;
+        }
+
+        /* =====================================================
+           CONTRIBUTION
+        ===================================================== */
+
+        .contribution {
+            background: #eaf2f6;
+        }
+
+        .contribution-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .contribution-item {
+            background: white;
+            border: 1px solid #dce3e9;
+            padding: 22px;
+
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .warning {
+            max-width: 800px;
+
+            background: white;
+
+            border-left: 3px solid #08aeea;
+
+            padding: 16px 20px;
+
+            margin-bottom: 30px;
+
+            color: #687787;
+
+            font-size: 13px;
+        }
+
+        /* =====================================================
+           PUBLICATION
+        ===================================================== */
+
+        .publication-card {
+            background: #07111f;
+            color: white;
+
+            padding: 40px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 40px;
+        }
+
+        .publication-card p {
+            color: #91a4b6;
+            max-width: 700px;
+        }
+
+        .button {
+            background: #08aeea;
+            color: #00131d;
+
+            padding: 15px 20px;
+
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+
+            white-space: nowrap;
+        }
+
+        .button:hover {
+            background: #70d7f7;
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #07111f;
+            color: #8194a6;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            font-size: 11px;
+        }
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 950px) {
+
+            .hero,
+            .two-column,
+            .experiment,
+            .milk-header {
+                grid-template-columns: 1fr;
+            }
+
+            .objective-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contribution-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 650px) {
+
+            .container {
+                width: 90%;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 70px 0;
+            }
+
+            .hero h1 {
+                font-size: 54px;
+            }
+
+            .hero-panel {
+                min-height: 300px;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            .objective-grid,
+            .dataset-grid,
+            .feature-grid,
+            .contribution-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-box ul {
+                grid-template-columns: 1fr;
+            }
+
+            .publication-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .pipeline {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .arrow {
+                justify-content: center;
+                transform: rotate(90deg);
+            }
+
+            .nav {
+                min-height: 60px;
+            }
+
+            .back {
+                display: none;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <div class="container nav">
+
+        <a href="index.html" class="logo">
+            SUKHWINDER <span>SINGH</span>
+        </a>
+
+        <a href="index.html" class="back">
+            ← Back to Portfolio
+        </a>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section>
+
+    <div class="container hero">
+
+        <div>
+
+            <div class="eyebrow">
+                RESEARCH PROJECT 03
+            </div>
+
+            <h1>
+                Food Quality<br>
+                <span>Detection</span>
+            </h1>
+
+            <p class="hero-description">
+                Artificial-intelligence-based research exploring
+                machine learning, computer vision and data-driven
+                approaches for food quality detection, fruit
+                classification and milk adulteration analysis.
+            </p>
+
+
+            <div class="tags">
+
+                <span class="tag">Artificial Intelligence</span>
+
+                <span class="tag">Machine Learning</span>
+
+                <span class="tag">Computer Vision</span>
+
+                <span class="tag">CNN</span>
+
+                <span class="tag">Food Quality</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-panel">
+
+            <div class="hero-number">
+                03
+            </div>
+
+            <hr>
+
+            <small>
+                AI • DATA • RESEARCH
+            </small>
+
+            <h3>
+                Artificial Intelligence Based
+                Food Quality Detection System
+            </h3>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROBLEM
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-number">
+            01 / PROBLEM STATEMENT
+        </div>
+
+        <div class="two-column">
+
+            <div>
+
+                <h2>
+                    Food Quality
+                    Assessment
+                </h2>
+
+            </div>
+
+
+            <div>
+
+                <p>
+                    Food quality assessment can involve inspection
+                    of products using visual characteristics,
+                    chemical composition and other measurable
+                    parameters.
+                </p>
+
+                <p>
+                    The research investigated how artificial
+                    intelligence and machine learning could support
+                    automated food-quality detection.
+                </p>
+
+                <p>
+                    The work focused on fruits and dairy products
+                    and included dataset collection, preprocessing,
+                    feature identification, model development,
+                    testing and validation.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     OBJECTIVES
+========================================================= -->
+
+<section class="dark">
+
+    <div class="container">
+
+        <div class="section-number">
+            02 / RESEARCH OBJECTIVES
+        </div>
+
+        <h2>
+            Research Goals
+        </h2>
+
+
+        <div class="objective-grid">
+
+
+            <article class="objective">
+
+                <span class="objective-number">
+                    01
+                </span>
+
+                <h3>
+                    Existing Methods
+                </h3>
+
+                <p>
+                    Study and analyze existing food-quality
+                    detection techniques.
+                </p>
+
+            </article>
+
+
+            <article class="objective">
+
+                <span class="objective-number">
+                    02
+                </span>
+
+                <h3>
+                    Data Collection
+                </h3>
+
+                <p>
+                    Collect relevant datasets from different
+                    sources.
+                </p>
+
+            </article>
+
+
+            <article class="objective">
+
+                <span class="objective-number">
+                    03
+                </span>
+
+                <h3>
+                    Feature Analysis
+                </h3>
+
+                <p>
+                    Preprocess data and identify important
+                    features.
+                </p>
+
+            </article>
+
+
+            <article class="objective">
+
+                <span class="objective-number">
+                    04
+                </span>
+
+                <h3>
+                    System Development
+                </h3>
+
+                <p>
+                    Develop an ML-based food-quality
+                    detection system.
+                </p>
+
+            </article>
+
+
+            <article class="objective">
+
+                <span class="objective-number">
+                    05
+                </span>
+
+                <h3>
+                    Testing
+                </h3>
+
+                <p>
+                    Test and validate the proposed
+                    system.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DATASETS
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-number">
+            03 / DATASETS
+        </div>
+
+        <h2>
+            Research Data
+        </h2>
+
+
+        <div class="dataset-grid">
+
+
+            <article class="dataset">
+
+                <div class="dataset-label">
+                    COMPUTER VISION
+                </div>
+
+                <h3>
+                    Fruit Image Dataset
+                </h3>
+
+                <p>
+                    A dataset was created by visiting different
+                    fruit vendors and collecting images of
+                    fruits such as apples and oranges at
+                    different angles and with different
+                    backgrounds.
+                </p>
+
+            </article>
+
+
+            <article class="dataset">
+
+                <div class="dataset-label">
+                    FOOD QUALITY
+                </div>
+
+                <h3>
+                    Milk Quality Dataset
+                </h3>
+
+                <p>
+                    The documented experiment contained
+                    969 milk samples, including 499 raw
+                    samples and 470 adulterated samples.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     METHODOLOGY
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-number">
+            04 / METHODOLOGY
+        </div>
+
+        <h2>
+            Research Pipeline
+        </h2>
+
+
+        <div class="pipeline">
+
+
+            <div class="step">
+
+                <span>01</span>
+
+                <strong>
+                    Data Collection
+                </strong>
+
+                <small>
+                    Images and structured
+                    food-quality data
+                </small>
+
+            </div>
+
+
+            <div class="arrow">
+                →
+            </div>
+
+
+            <div class="step">
+
+                <span>02</span>
+
+                <strong>
+                    Preprocessing
+                </strong>
+
+                <small>
+                    Prepare and organize
+                    the datasets
+                </small>
+
+            </div>
+
+
+            <div class="arrow">
+                →
+            </div>
+
+
+            <div class="step">
+
+                <span>03</span>
+
+                <strong>
+                    Feature Analysis
+                </strong>
+
+                <small>
+                    Identify relevant
+                    quality features
+                </small>
+
+            </div>
+
+
+            <div class="arrow">
+                →
+            </div>
+
+
+            <div class="step">
+
+                <span>04</span>
+
+                <strong>
+                    Model Development
+                </strong>
+
+                <small>
+                    CNN and machine
+                    learning models
+                </small>
+
+            </div>
+
+
+            <div class="arrow">
+                →
+            </div>
+
+
+            <div class="step">
+
+                <span>05</span>
+
+                <strong>
+                    Evaluation
+                </strong>
+
+                <small>
+                    Classification
+                    and validation
+                </small>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FRUIT EXPERIMENT
+========================================================= -->
+
+<section>
+
+    <div class="container experiment">
+
+
+        <div>
+
+            <div class="section-number">
+                05 / EXPERIMENT 01
+            </div>
+
+            <h2>
+                Fruit
+                Classification
+            </h2>
+
+            <p>
+                A fruit image dataset was created using
+                photographs collected from different vendors.
+            </p>
+
+            <p>
+                A convolutional neural network (CNN) was
+                developed by training the dataset containing
+                images of different fruits.
+            </p>
+
+            <p>
+                A graphical user interface was also designed
+                for the fruit classifier, allowing an input
+                image to be processed and an output to be
+                displayed.
+            </p>
+
+        </div>
+
+
+        <div class="flow">
+
+            <div class="flow-box">
+                FRUIT IMAGE
+            </div>
+
+            <div class="flow-arrow">
+                ↓
+            </div>
+
+            <div class="flow-box">
+                IMAGE DATASET
+            </div>
+
+            <div class="flow-arrow">
+                ↓
+            </div>
+
+            <div class="flow-box">
+                CNN MODEL
+            </div>
+
+            <div class="flow-arrow">
+                ↓
+            </div>
+
+            <div class="flow-box">
+                CLASSIFICATION
+            </div>
+
+            <div class="flow-arrow">
+                ↓
+            </div>
+
+            <div class="flow-result">
+                GUI OUTPUT
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MILK EXPERIMENT
+========================================================= -->
+
+<section class="dark">
+
+    <div class="container">
+
+
+        <div class="section-number">
+            06 / EXPERIMENT 02
+        </div>
+
+
+        <div class="milk-header">
+
+
+            <div>
+
+                <h2>
+                    Milk Adulteration
+                    Classification
+                </h2>
+
+                <p class="muted">
+                    The documented experiment evaluated
+                    machine-learning classifiers for
+                    distinguishing raw and adulterated
+                    milk samples.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="big-number">
+                    969
+                </div>
+
+                <p class="muted">
+                    Total documented samples
+                </p>
+
+
+                <div class="sample-box">
+
+                    <div class="sample">
+
+                        <strong>
+                            499
+                        </strong>
+
+                        <span>
+                            RAW SAMPLES
+                        </span>
+
+                    </div>
+
+
+                    <div class="sample">
+
+                        <strong>
+                            470
+                        </strong>
+
+                        <span>
+                            ADULTERATED
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            CLASSIFIER
+                        </th>
+
+                        <th>
+                            REPORTED ACCURACY
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            Decision Tree
+                        </td>
+
+                        <td>
+                            95.06%
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Random Forest
+                        </td>
+
+                        <td>
+                            95.06%
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            KNN
+                        </td>
+
+                        <td>
+                            94.23%
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Logistic Regression
+                        </td>
+
+                        <td>
+                            85.18%
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            SVM
+                        </td>
+
+                        <td>
+                            84.77%
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Naïve Bayes
+                        </td>
+
+                        <td>
+                            76.13%
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <p class="note">
+            Reported results from the project material;
+            these values are presented as documented
+            experimental results and have not been
+            independently reproduced on this page.
+        </p>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FEATURES
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-number">
+            07 / FOOD QUALITY FEATURES
+        </div>
+
+        <h2>
+            Quality Parameters
+        </h2>
+
+
+        <div class="feature-grid">
+
+
+            <div class="feature-box">
+
+                <h3>
+                    Visual Features
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Colour
+                    </li>
+
+                    <li>
+                        Shape
+                    </li>
+
+                    <li>
+                        Size
+                    </li>
+
+                    <li>
+                        Texture
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="feature-box">
+
+                <h3>
+                    Composition Features
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Temperature
+                    </li>
+
+                    <li>
+                        Moisture
+                    </li>
+
+                    <li>
+                        pH
+                    </li>
+
+                    <li>
+                        Volatile Gases
+                    </li>
+
+                    <li>
+                        Carbon Dioxide
+                    </li>
+
+                    <li>
+                        Oxygen
+                    </li>
+
+                    <li>
+                        Odour
+                    </li>
+
+                    <li>
+                        Pressure
+                    </li>
+
+                    <li>
+                        Viscosity
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div style="
+            margin-top:25px;
+            padding:25px;
+            border-left:3px solid #08aeea;
+            background:#e0f7ff;
+            color:#315365;
+        ">
+
+            The research material identifies fruit ripeness
+            as an important quality parameter and proposes
+            combining visual features with volatile compounds
+            such as ethylene, carbon dioxide and oxygen for
+            future AI-based quality prediction.
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TECHNOLOGIES
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-number">
+            08 / TECHNOLOGY
+        </div>
+
+        <h2>
+            Technical Areas
+        </h2>
+
+
+        <div class="tech-list">
+
+            <span class="tech">
+                Artificial Intelligence
+            </span>
+
+            <span class="tech">
+                Machine Learning
+            </span>
+
+            <span class="tech">
+                Deep Learning
+            </span>
+
+            <span class="tech">
+                CNN
+            </span>
+
+            <span class="tech">
+                Computer Vision
+            </span>
+
+            <span class="tech">
+                Image Processing
+            </span>
+
+            <span class="tech">
+                Feature Engineering
+            </span>
+
+            <span class="tech">
+                Classification
+            </span>
+
+            <span class="tech">
+                Data Analysis
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTRIBUTION
+========================================================= -->
+
+<section class="contribution">
+
+    <div class="container">
+
+        <div class="section-number">
+            09 / MY CONTRIBUTION
+        </div>
+
+        <h2>
+            My Role
+        </h2>
+
+
+        <div class="warning">
+
+            <strong>
+                Important:
+            </strong>
+
+            The research material describes the overall
+            project. Replace the items below with only
+            the activities you personally performed.
+
+        </div>
+
+
+        <div class="contribution-grid">
+
+            <div class="contribution-item">
+                Dataset Collection
+            </div>
+
+            <div class="contribution-item">
+                Data Preprocessing
+            </div>
+
+            <div class="contribution-item">
+                Machine Learning
+            </div>
+
+            <div class="contribution-item">
+                CNN / Computer Vision
+            </div>
+
+            <div class="contribution-item">
+                Data Analysis
+            </div>
+
+            <div class="contribution-item">
+                GUI / Web Interface
+            </div>
+
+            <div class="contribution-item">
+                Research Documentation
+            </div>
+
+            <div class="contribution-item">
+                Literature Review
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PUBLICATION
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-number">
+            10 / RESEARCH
+        </div>
+
+        <h2>
+            Research & Publications
+        </h2>
+
+
+        <div class="publication-card">
+
+            <div>
+
+                <small style="
+                    color:#08aeea;
+                    letter-spacing:3px;
+                ">
+                    RESEARCH PROJECT
+                </small>
+
+                <h3 style="
+                    font-size:27px;
+                    margin:15px 0;
+                ">
+                    Artificial Intelligence Based
+                    Food Quality Detection System
+                </h3>
+
+                <p>
+                    Research covering food-quality detection,
+                    fruit classification, machine-learning
+                    approaches and milk adulteration
+                    classification.
+                </p>
+
+            </div>
+
+
+            <!--
+                CHANGE THIS LINK TO YOUR ACTUAL
+                PUBLICATIONS PAGE.
+            -->
+
+            <a
+                href="publications.html"
+                class="button"
+            >
+                VIEW PUBLICATIONS →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    © 2026 Sukhwinder Singh · AI • Data • Research
+
+</footer>
+
+
+</body>
+</html>
