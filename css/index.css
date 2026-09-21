@@ -168,28 +168,266 @@ a {
 /* =========================================================
    HERO
 ========================================================= */
+/* =========================================================
+   HERO ACTION BUTTONS
+========================================================= */
 
-.hero {
-    width: min(1200px, calc(100% - 104px));
-
-    margin: 0 auto;
-
-    /*
-       Deliberately compact.
-       There is NO large bottom padding.
-    */
-
-    padding-top: 73px;
-
-    padding-bottom: 0;
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 32px;
+    flex-wrap: wrap;
 }
 
-.hero-content {
+
+/* ---------------------------------------------------------
+   BASE BUTTON
+--------------------------------------------------------- */
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    min-height: 48px;
+    padding: 0 22px;
+
+    text-decoration: none;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    border: 1px solid #d7dde3;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* ---------------------------------------------------------
+   PRIMARY BUTTON
+--------------------------------------------------------- */
+
+.hero-btn-primary {
+    background: #101827;
+    color: #ffffff;
+    border-color: #101827;
+}
+
+.hero-btn-primary span {
+    font-size: 16px;
+    line-height: 1;
+
+    transition: transform 0.25s ease;
+}
+
+.hero-btn-primary:hover {
+    background: #087ea4;
+    border-color: #087ea4;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+.hero-btn-primary:hover span {
+    transform: translateX(4px);
+}
+
+
+/* ---------------------------------------------------------
+   SECONDARY BUTTON
+--------------------------------------------------------- */
+
+.hero-btn-secondary {
+    background: #ffffff;
+    color: #101827;
+    border-color: #cfd7df;
+}
+
+.hero-btn-secondary span {
+    font-size: 16px;
+    line-height: 1;
+
+    transition: transform 0.25s ease;
+}
+
+.hero-btn-secondary:hover {
+    color: #087ea4;
+    border-color: #087ea4;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.hero-btn-secondary:hover span {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   COLLABORATION LINK
+========================================================= */
+
+.collaboration-link {
+    margin-top: 24px;
+}
+
+
+/* ---------------------------------------------------------
+   LINK
+--------------------------------------------------------- */
+
+.collaboration-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+
+    color: #087ea4;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    transition: color 0.25s ease;
+}
+
+
+/* ---------------------------------------------------------
+   BLUE STATUS DOT
+--------------------------------------------------------- */
+
+.collaboration-dot {
+    width: 7px;
+    height: 7px;
+
+    display: inline-block;
+
+    background: #087ea4;
+    border-radius: 50%;
+
+    box-shadow: 0 0 0 4px rgba(8, 126, 164, 0.08);
+
+    animation: collaborationPulse 2s infinite;
+}
+
+
+/* ---------------------------------------------------------
+   TEXT
+--------------------------------------------------------- */
+
+.collaboration-text {
+    position: relative;
+}
+
+
+/* Animated underline */
+
+.collaboration-text::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -5px;
+
+    width: 0;
+    height: 1px;
+
+    background: #087ea4;
+
+    transition: width 0.3s ease;
+}
+
+
+/* ---------------------------------------------------------
+   ARROW
+--------------------------------------------------------- */
+
+.collaboration-arrow {
+    font-size: 16px;
+    line-height: 1;
+
+    transition: transform 0.25s ease;
+}
+
+
+/* ---------------------------------------------------------
+   HOVER
+--------------------------------------------------------- */
+
+.collaboration-link a:hover {
+    color: #101827;
+}
+
+.collaboration-link a:hover .collaboration-text::after {
     width: 100%;
-
-    max-width: 850px;
 }
 
+.collaboration-link a:hover .collaboration-arrow {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   PULSE ANIMATION
+========================================================= */
+
+@keyframes collaborationPulse {
+
+    0% {
+        box-shadow: 0 0 0 0 rgba(8, 126, 164, 0.25);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(8, 126, 164, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(8, 126, 164, 0);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .hero-btn {
+        width: 100%;
+    }
+
+    .collaboration-link {
+        margin-top: 22px;
+    }
+
+    .collaboration-link a {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+        line-height: 1.6;
+    }
+
+}
 
 /* EYEBROW */
 
@@ -409,67 +647,584 @@ a {
 
 
 /* =========================================================
-   FEATURE CARDS
+   OPEN TO VOLUNTEER / COLLABORATION
 ========================================================= */
 
-.features-grid {
-    display: grid;
+.collaboration-section {
+    position: relative;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    width: 100%;
 
-    gap: 11px;
+    padding: 120px 0;
 
-    margin-top: 32px;
+    background: #f7f9fb;
+
+    border-top: 1px solid #e4e8ec;
+    border-bottom: 1px solid #e4e8ec;
+
+    overflow: hidden;
 }
 
-.feature-card {
-    min-height: 143px;
 
-    padding: 27px 22px;
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.collaboration-container {
+    width: min(1180px, calc(100% - 80px));
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   SECTION LABEL
+========================================================= */
+
+.collaboration-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 28px;
+
+    color: #087ea4;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+
+.collaboration-label-line {
+    display: block;
+
+    width: 34px;
+    height: 1px;
+
+    background: #087ea4;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.collaboration-heading {
+    max-width: 760px;
+
+    margin-bottom: 0px;
+}
+
+
+.collaboration-heading h2 {
+    margin: 0;
+
+    color: #101827;
+
+    font-size: clamp(42px, 5vw, 72px);
+
+    font-weight: 600;
+
+    line-height: 1.05;
+
+    letter-spacing: -2.5px;
+}
+
+
+.collaboration-heading h2 span {
+    display: block;
+
+    color: #087ea4;
+}
+
+
+.collaboration-heading p {
+    max-width: 650px;
+
+    margin-top: 28px;
+
+    color: #5d6875;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   COLLABORATION GRID
+========================================================= */
+
+.collaboration-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   COLLABORATION CARD
+========================================================= */
+
+.collaboration-card {
+    position: relative;
+
+    display: flex;
+
+    min-height: 150px;
+
+    padding: 20px;
 
     background: #ffffff;
 
-    border: 1px solid #d2dde6;
+    border: 5px solid #dfe5ea;
 
     transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+    overflow: hidden;
 }
 
-.feature-card:hover {
-    transform: translateY(-3px);
 
-    border-color: #12aee8;
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.collaboration-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #087ea4;
+
+    box-shadow: 0 18px 40px rgba(16, 24, 39, 0.08);
 }
 
-.feature-card > span {
-    color: #08a9e4;
 
-    font-size: 8px;
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.collaboration-card-number {
+    flex-shrink: 0;
+
+    margin-right: 25px;
+
+    color: #b7c0c9;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.collaboration-card-content {
+    padding-right: 25px;
+}
+
+
+.collaboration-card-content h3 {
+    margin: 0 0 14px;
+
+    color: #101827;
+
+    font-size: 22px;
+
+    font-weight: 600;
+
+    letter-spacing: -0.4px;
+}
+
+
+.collaboration-card-content p {
+    max-width: 420px;
+
+    margin: 0;
+
+    color: #687482;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   TAGS
+========================================================= */
+
+.collaboration-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 22px;
+}
+
+
+.collaboration-tags span {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 9px;
+
+    background: #f3f7f9;
+
+    border: 1px solid #e1e9ed;
+
+    color: #087ea4;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CARD ARROW
+========================================================= */
+
+.collaboration-card-arrow {
+    position: absolute;
+
+    right: 25px;
+    bottom: 22px;
+
+    color: #b5c0c8;
+
+    font-size: 22px;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.collaboration-card:hover .collaboration-card-arrow {
+    color: #087ea4;
+
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   FOOTER / AVAILABILITY
+========================================================= */
+
+.collaboration-footer {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-top: 15px;
+
+    padding-top: 30px;
+
+    border-top: 1px solid #dfe5ea;
+}
+
+
+/* =========================================================
+   AVAILABILITY
+========================================================= */
+
+.availability-status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    color: #596572;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.7px;
+}
+
+
+.availability-dot {
+    width: 8px;
+    height: 8px;
+
+    display: block;
+
+    background: #087ea4;
+
+    border-radius: 150%;
+
+    box-shadow:
+        0 0 0 4px rgba(8, 126, 164, 0.10);
+
+    animation: availabilityPulse 2s infinite;
+}
+
+
+
+/* =========================================================
+   CONNECT email github
+========================================================= */
+
+.connect {
+    width: min(1200px, calc(100% - 104px));
+
+    margin: 0 auto;
+
+    padding-top: 70px;
+
+    padding-bottom: 10px;
+
+    border-top: 1px solid #d2dde6;
+}
+
+
+
+.connect p:not(.eyebrow) {
+    max-width: 600px;
+
+    margin-top: 17px;
+
+    color: #617286;
+
+    font-size: 12px;
+}
+
+.connect-buttons {
+    display: flex;
+
+    gap: 9px;
+
+    margin-top: 23px;
+}
+
+.connect-buttons a {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 35px;
+
+    padding: 0 17px;
+
+    background: #07131f;
+
+    color: #ffffff;
+
+    font-size: 10px;
 
     font-weight: 700;
 }
 
-.feature-card h3 {
-    margin-top: 18px;
-
-    color: #101722;
-
-    font-size: 15px;
-
-    line-height: 1.2;
+.connect-buttons a:hover {
+    background: #12aee8;
 }
 
-.feature-card p {
-    margin-top: 10px;
 
-    color: #617286;
 
-    font-size: 9px;
+/* =========================================================
+   CTA
+========================================================= */
 
-    line-height: 1.6;
+.collaboration-cta {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 15px 22px;
+
+    background: #101827;
+
+    border: 1px solid #101827;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
 }
+
+
+.collaboration-cta-arrow {
+    font-size: 17px;
+
+    transition: transform 0.25s ease;
+}
+
+
+.collaboration-cta:hover {
+    background: #087ea4;
+
+    border-color: #087ea4;
+
+    transform: translateY(-2px);
+}
+
+
+.collaboration-cta:hover .collaboration-cta-arrow {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   PULSE
+========================================================= */
+
+@keyframes availabilityPulse {
+
+    0% {
+        box-shadow:
+            0 0 0 0 rgba(8, 126, 164, 0.25);
+    }
+
+    70% {
+        box-shadow:
+            0 0 0 7px rgba(8, 126, 164, 0);
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 0 rgba(8, 126, 164, 0);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .collaboration-section {
+        padding: 90px 0;
+    }
+
+    .collaboration-container {
+        width: min(100% - 50px, 700px);
+    }
+
+    .collaboration-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .collaboration-heading h2 {
+        font-size: 52px;
+    }
+
+    .collaboration-footer {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .collaboration-section {
+        padding: 75px 0;
+    }
+
+    .collaboration-container {
+        width: calc(100% - 36px);
+    }
+
+    .collaboration-heading {
+        margin-bottom: 45px;
+    }
+
+    .collaboration-heading h2 {
+        font-size: 40px;
+
+        letter-spacing: -1.5px;
+    }
+
+    .collaboration-heading p {
+        font-size: 14px;
+    }
+
+    .collaboration-card {
+        min-height: auto;
+
+        padding: 25px;
+    }
+
+    .collaboration-card-number {
+        margin-right: 17px;
+    }
+
+    .collaboration-card-content h3 {
+        font-size: 19px;
+    }
+
+    .collaboration-card-content p {
+        font-size: 13px;
+    }
+
+    .collaboration-footer {
+        margin-top: 40px;
+    }
+
+    .availability-status {
+        align-items: flex-start;
+
+        font-size: 9px;
+
+        line-height: 1.6;
+    }
+
+    .collaboration-cta {
+        width: 100%;
+
+        justify-content: space-between;
+    }
+
+}
+
 
 
 /* =========================================================
@@ -586,81 +1341,6 @@ a {
 
 .project-card .link:hover {
     color: #12aee8;
-}
-
-
-/* =========================================================
-   CONNECT
-========================================================= */
-
-.connect {
-    width: min(1200px, calc(100% - 104px));
-
-    margin: 0 auto;
-
-    padding-top: 70px;
-
-    padding-bottom: 80px;
-
-    border-top: 1px solid #d2dde6;
-}
-
-.connect .eyebrow {
-    margin-bottom: 14px;
-}
-
-.connect h2 {
-    margin: 0;
-
-    color: #101722;
-
-    font-size: clamp(42px, 5vw, 57px);
-
-    line-height: 0.98;
-
-    letter-spacing: -3px;
-}
-
-.connect p:not(.eyebrow) {
-    max-width: 600px;
-
-    margin-top: 17px;
-
-    color: #617286;
-
-    font-size: 12px;
-}
-
-.connect-buttons {
-    display: flex;
-
-    gap: 9px;
-
-    margin-top: 23px;
-}
-
-.connect-buttons a {
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    height: 35px;
-
-    padding: 0 17px;
-
-    background: #07131f;
-
-    color: #ffffff;
-
-    font-size: 8px;
-
-    font-weight: 700;
-}
-
-.connect-buttons a:hover {
-    background: #12aee8;
 }
 
 
@@ -905,4 +1585,74 @@ a {
 
         text-align: center;
     }
+}
+
+
+
+/* =========================================================
+ publicatons
+ 
+========================================================= */
+
+
+.publication-section {
+    padding: 0px 0;
+}
+
+.publication-box {
+    padding: 105px;
+
+    background: #eaf2f6;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+.publication-box h2 {
+    font-size: 48px;
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 15px;
+}
+
+.publication-box p:not(.eyebrow) {
+    color: #687787;
+}
+
+.publication-button {
+    flex-shrink: 0;
+
+    padding: 15px 22px;
+
+    background: #06111f;
+
+    color: #ffffff;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.publication-button:hover {
+    background: #13b4ed;
+
+    color: #03101a;
+}
+
+.publication-button span {
+    margin-left: 20px;
+
+    font-size: 17px;
 }
